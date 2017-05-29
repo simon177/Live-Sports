@@ -622,27 +622,22 @@
 		});		
 	 </script>
 	 <script>
-	     document.addEventListener("deviceready", onDeviceReady, false);
-		// PhoneGap is ready
-		//
-		function onDeviceReady() {
-			// Empty
-		}
-
-		// alert dialog dismissed
-		function alertDismissed() {
-			// do something
-		}
-
-		// Show a custom alert
-		//
-		function showAlert() {
-			navigator.notification.alert(
-				'You are the winner!' + 'My name is ' + localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname'),  // message
-				alertDismissed,         // callback
-				'Game Over',            // title
-				'Done'                  // buttonName
-			);
-		}
+		$(document).on('pagebeforeshow', '#find_match', function(){       
+			$(document).on('click', '#inter', function(){		
+				var today = new Date();
+				var tomorrow = new Date();
+				tomorrow.setDate(today.getDate()+1);
+				tomorrow.setHours(6);
+				tomorrow.setMinutes(0);
+				tomorrow.setSeconds(0);
+				var tomorrow_at_6_am = new Date(tomorrow);
+				cordova.plugins.notification.local.schedule({
+					id: 1,
+					text: "Good morning!",
+					firstAt: tomorrow_at_6_am,
+					every: "day" // "minute", "hour", "week", "month", "year"
+				});
+			});
+		});
     </script>	 
 </html>
