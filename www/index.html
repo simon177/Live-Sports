@@ -262,6 +262,7 @@
 										</label>
 									</form>
 									<a href="#find_match_results" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live Match</a>
+									<p class="event received" onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Device is Ready</p>
 								</div>
 							</div>	
 		<div id="find_match_results" data-role="page"  data-theme="a">
@@ -633,5 +634,40 @@
 		date:    _60_seconds_from_now
 	});
 	window.plugin.notification.local.add({ message: 'Great app!' });
-    </script>	 
+	var push = PushNotification.init({
+		android: {
+		},
+		browser: {
+			pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+		},
+		ios: {
+			alert: "true",
+			badge: "true",
+			sound: "true"
+		},
+		windows: {}
+	});
+
+	push.on('registration', function(data) {
+		// data.registrationId
+	});
+
+	push.on('notification', function(data) {
+		// data.message,
+		// data.title,
+		// data.count,
+		// data.sound,
+		// data.image,
+		// data.additionalData
+	});
+
+	push.on('error', function(e) {
+		// e.message
+	});    
+	</script>	
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="local-notification.js"></script>
+    <script type="text/javascript">]
+        window.plugin.notification.local.add({ message: 'Great app!' });
+    </script>	
 </html>
