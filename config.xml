@@ -19,5 +19,6 @@
 	<plugin name="cordova-plugin-calendar"/>
 	<access origin="*" />
 	<plugin name="cordova-plugin-whitelist"/>
+	<plugin name="com.adobe.plugins.pushplugin" />
 
 </widget>
