@@ -19,6 +19,5 @@
 	<plugin name="cordova-plugin-calendar"/>
 	<access origin="*" />
 	<plugin name="cordova-plugin-whitelist"/>
-	<plugin name="com.adobe.plugins.pushplugin" />
-
+	<plugin name="de.appplant.cordova.plugin.local-notification" spec="0.8.1" source="pgb" />
 </widget>
