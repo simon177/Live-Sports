@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width,initial-scale=1">
+				<title>jQuery Mobile Bootstrap Theme</title>
+				<link rel="stylesheet" href="themes/Bootstrap.css">
+					<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+					<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+					<script src="http://code.jquery.com/jquery-1.8.2.min.js"/>
+					<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"/>
+				</head>
+				<body>
+					<div data-role="page" data-theme="a">
+						<div data-role="header" data-position="inline">
+							<h1>LIVESPORTS-APP</h1>
+							<div data-role="navbar">
+								<ul>
+									<li>
+										<a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+									</li>
+									<li>
+										<a href="" data-icon="search">About</a>
+									</li>
+									<li>
+										<a href="" data-icon="gear">Settings</a>
+									</li>
+									<li>
+										<a href="" data-icon="gear">Contact</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div data-role="content" data-theme="a">
+							<h2 style="text-align: center;">Find Match</h2>
+							<form method="post" action="/action_page_post.php">
+								<label for="">Fill in all fields on the form</label>
+								<label for="fto">League: <select name="fto" id="fto" data-clear-btn="true">
+										<option value="62">England - Premier League</option>
+										<option value="79">Italy - Serie A</option>
+										<option value="109">Spain - Liga BBVA</option>
+										<option value="117">Germany - Bundesliga</option>
+										<option value="127">France - Ligue 1</option>
+										<option value="137">Netherlands - Eredivisie</option>
+										<option value="144">Belgium - Pro Lig</option>
+										<option value="150">Portugal - Primeira Liga</option>
+										<option value="176">Scotland - Premiership</option>
+										<option value="274">Austria - Bundesliga</option>
+										<option value="280">Cyprus - 1st League</option>
+										<option value="284">Denmark - Superliga</option>
+										<option value="293">Finland - Veikkausliiga</option>
+										<option value="306">Greece - Super League</option>
+										<option value="325">Iceland - Urvalsdeild</option>
+										<option value="329">Ireland - Airtricity League</option>
+										<option value="334">Luxemburg - National Division</option>
+										<option value="337">Norway - Tippeligaen</option>
+										<option value="345">North. Ireland - Premiership</option>
+										<option value="350">Sweden - Allsvenskan</option>
+										<option value="368">Switzerland - Super League</option>
+										<option value="376">Turkey - Super Lig</option>
+										<option value="395">Wales - Premier League</option>
+										<option value="400">Belarus - Premier</option>
+										<option value="403">Bosnia & Herz. - Premijer Liga</option>
+										<option value="407">Bulgaria - A PFG</option>
+										<option value="411">Croatia - 1st League</option>
+										<option value="415">Czech Rep. - Synot League</option>
+										<option value="419">Estonia - Premium Liiga</option>
+										<option value="424">Hungary - OTP BANK Liga</option>
+										<option value="441">Latvia - Virsliga</option>
+										<option value="444">Lithuania - A Lyga</option>
+										<option value="447">Moldova - National Division</option>
+										<option value="450">Montenegro - Telekom 1</option>
+										<option value="453">Poland - Ekstraklasa</option>
+										<option value="459">Romania - Liga 1</option>
+										<option value="469">Russia - Premier League</option>
+										<option value="478">Serbia - Super Liga</option>
+										<option value="481">Slovakia - Fortuna League</option>
+										<option value="486">Slovenia - 1st SNL</option>
+										<option value="490">Ukraine - Premier League</option>		
+									</select>
+								</label>
+								<label for="fdate">Date: <input type="date-time" name="fdate" id="fdate" data-clear-btn="true">
+									</label>
+								</form>
+								<a href="#interesetpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live Match</a>
+							</div>
+						</div>
+					</body>
+				</html>
+				
