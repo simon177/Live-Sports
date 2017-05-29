@@ -622,22 +622,16 @@
 		});		
 	 </script>
 	 <script>
-		$(document).on('pagebeforeshow', '#find_match', function(){       
-			$(document).on('click', '#inter', function(){		
-				var today = new Date();
-				var tomorrow = new Date();
-				tomorrow.setDate(today.getDate()+1);
-				tomorrow.setHours(6);
-				tomorrow.setMinutes(0);
-				tomorrow.setSeconds(0);
-				var tomorrow_at_6_am = new Date(tomorrow);
-				cordova.plugins.notification.local.schedule({
-					id: 1,
-					text: "Good morning!",
-					firstAt: tomorrow_at_6_am,
-					every: "day" // "minute", "hour", "week", "month", "year"
-				});
-			});
-		});
+	var now = new Date().getTime(),
+    _60_seconds_from_now = new Date(now + 60*1000);
+
+	window.plugin.notification.local.add({
+		id:      1, // is converted to a string
+		title:   'Reminder',
+		message: 'Dont forget to buy some flowers.',
+		repeat:  'weekly',
+		date:    _60_seconds_from_now
+	});
+	window.plugin.notification.local.add({ message: 'Great app!' });
     </script>	 
 </html>
