@@ -20,4 +20,6 @@
 	<access origin="*" />
 	<plugin name="cordova-plugin-whitelist"/>
 	<plugin name="de.appplant.cordova.plugin.local-notification" spec="0.8.2"/>
+	<plugin name="phonegap-plugin-push" spec="2.0.0" />
+	
 </widget>
