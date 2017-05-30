@@ -10,12 +10,8 @@
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
-		
-		<!-- Add PhoneGap library -->
-		<script type="text/javascript" src="phonegap.js"></script>
-	
 	</head>
-	<body >
+	<body>
 		<div id="main" data-role="page" data-theme="a">
 			<div data-role="header" data-position="inline">
 				<h1>Live Sports APP</h1>
@@ -31,7 +27,7 @@
 							<a href="#settings" data-rel="settings" data-icon="gear">Settings</a>
 						</li>
 						<li>
-							<a href="#contact" data-rel="contact"  data-icon="gear">Contact</a>
+							<a href="sms.html" data-rel="contact"  data-icon="gear">SMS</a>
 						</li>
 					</ul>
 				</div>
@@ -43,7 +39,6 @@
 				<p><a href="#live" data-role="button" data-icon="grid">Live</a>
 				<p><a href="#follows" data-role="button" data-icon="star">Follows</a>
 				<p><a href="#standings" data-role="button" data-icon="gear">Standings</a>  
-				<p><button onclick="testNotifications()">test powiadomie</button>
 			</div>
 		</div>      				
 		<div id="about_popup" data-role="page" data-theme="a">
@@ -275,7 +270,6 @@
 			</div>
 			<div data-role="content" data-theme="a" id="result">
 			</div>
-			<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
 		</div>
 		<div id="matchpage" data-role="page"  data-theme="a">
     <div data-role="header">
@@ -626,79 +620,5 @@
 			alert('My name is ' + localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname'));
 		});		
 	 </script>
-    <script>
-<<<<<<< HEAD
-		document.addEventListener('deviceready', function () {
-			// Schedule notification for tomorrow to remember about the meeting
-			cordova.plugins.notification.local.schedule({
-				id: 10,
-				title: "Meeting in 15 minutes!",
-				text: "Jour fixe Produktionsbesprechung",
-				at: tomorrow_at_8_45_am,
-				data: { meetingId:"#123FG8" }
-			});
-		}, false);
-=======
-		var testNotifications = function () {
-
-		document.addEventListener("deviceready", function () {
-
-		  console.warn("testNotifications Started");
-
-		  // Checks for permission
-		  cordova.plugin.notification.local.hasPermission(function (granted) {
-
-			console.warn("Testing permission");
-
-			if( granted == false ) {
-
-			  console.warn("No permission");
-			  // If app doesnt have permission request it
-			  cordova.plugin.notification.local.registerPermission(function (granted) {
-
-				console.warn("Ask for permission");
-				if( granted == true ) {
-
-				  console.warn("Permission accepted");
-				  // If app is given permission try again
-				  testNotifications();
-
-				} else {
-				  alert("We need permission to show you notifications");
-				}
-
-			  });
-			} else {
-
-			  var pathArray = window.location.pathname.split( "/www/" ),
-				  secondLevelLocation = window.location.protocol +"//"+ pathArray[0],
-				  now = new Date();
-
-
-			  console.warn("sending notification");
-
-			  var isAndroid = false;
-
-			  if ( device.platform === "Android" ) {
-				isAndroid = true;
-			  }
-
-			  cordova.plugin.notification.local.schedule({
-				  id: 9,
-				  title: "Test notification 9",
-				  text: "This is a test notification",
-				  sound: isAndroid ? "file://sounds/notification.mp3" : "file://sounds/notification.caf",
-				  at: new Date( new Date().getTime() + 10 )
-				  // data: { secret:key }
-			  });
-
-			}
-
-		  });
-
-		  }, false);
-
-		};	
->>>>>>> 996e2df9cc8e17f93dbf04d5070578fcb6ee66a8
-    </script>	
+	
 </html>
