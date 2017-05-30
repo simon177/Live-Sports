@@ -64,6 +64,14 @@ module.exports = [
             "cordova.plugins.notification.local.core",
             "plugin.notification.local.core"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-sms/www/SMS.js",
+        "id": "cordova-plugin-sms.SMS",
+        "pluginId": "cordova-plugin-sms",
+        "clobbers": [
+            "window.SMS"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -73,7 +81,8 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.3.3",
     "cordova-plugin-calendar": "4.5.5",
     "cordova-plugin-whitelist": "1.3.2",
-    "de.appplant.cordova.plugin.local-notification": "0.8.2"
+    "de.appplant.cordova.plugin.local-notification": "0.8.2",
+    "cordova-plugin-sms": "1.0.5"
 }
 // BOTTOM OF METADATA
 });

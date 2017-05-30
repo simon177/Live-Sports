@@ -10,10 +10,6 @@
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
-		
-		<!-- Add PhoneGap library -->
-		<script type="text/javascript" src="phonegap.js"></script>
-	
 	</head>
 	<body >
 		<div id="main" data-role="page" data-theme="a">
@@ -31,7 +27,7 @@
 							<a href="#settings" data-rel="settings" data-icon="gear">Settings</a>
 						</li>
 						<li>
-							<a href="#contact" data-rel="contact"  data-icon="gear">Contact</a>
+							<a href="sms.html" data-rel="contact"  data-icon="gear">Contact</a>
 						</li>
 					</ul>
 				</div>
@@ -43,8 +39,6 @@
 				<p><a href="#live" data-role="button" data-icon="grid">Live</a>
 				<p><a href="#follows" data-role="button" data-icon="star">Follows</a>
 				<p><a href="#standings" data-role="button" data-icon="gear">Standings</a>  
-				<p><button onclick="testNotifications()">test powiadomie</button>
-				<button ng-click="notify()">notify</button>
 			</div>
 		</div>      				
 		<div id="about_popup" data-role="page" data-theme="a">
@@ -626,9 +620,5 @@
 			alert('My name is ' + localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname'));
 		});		
 	 </script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="local-notification.js"></script>
-    <script type="text/javascript">
-        window.plugin.notification.local.add({ message: 'Great app!' });
-    </script>
+	
 </html>

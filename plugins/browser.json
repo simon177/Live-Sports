@@ -21,6 +21,9 @@
         },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "LiveSports-APP-testv2"
+        },
+        "cordova-plugin-sms": {
+            "PACKAGE_NAME": "LiveSports-APP-testv2"
         }
     },
     "dependent_plugins": {}
