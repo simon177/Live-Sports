@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
-        xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "LiveSports-APP-testv2"
-        version     = "1.0.0" >
-
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="LiveSports-APP-testv2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>LiveSports-APP-testV2</name>
     <description>LiveSports-APP for tracking sport events</description>
     <author email="szymon.banowski@gmail.com">
 		Szymon Banowski
 	</author>
-	<author email="l_dolezalek@wp.pl">
+    <author email="l_dolezalek@wp.pl">
 		Lukasz Dolezalek
 	</author>
-	<platform name="android" />
-	
-	<plugin name="cordova-plugin-device" spec="~1.1.4" />
-	<plugin name="cordova-plugin-dialogs" spec="~1.3.1" />
-	<plugin name="cordova-plugin-calendar"/>
-	<access origin="*" />
-	<plugin name="cordova-plugin-whitelist"/>
-
+    <platform name="android" />
+    <plugin name="cordova-plugin-device" spec="~1.1.4" />
+    <plugin name="cordova-plugin-dialogs" spec="~1.3.1" />
+    <plugin name="cordova-plugin-calendar" />
+    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" />
+    <plugin name="de.appplant.cordova.plugin.local-notification" spec="https://github.com/katzer/cordova-plugin-local-notifications" />
 </widget>
