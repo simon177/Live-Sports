@@ -626,19 +626,9 @@
 			alert('My name is ' + localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname'));
 		});		
 	 </script>
-    <script>
- $scope.notify = function() {
-    console.log("com");
-    document.addEventListener('deviceready', function() {
-       // cordova.plugins.notification.local is now available
-        cordova.plugins.notification.local.schedule({
-            id:021,
-            title: "New Message",
-            message: "Hi, are you ready? We are waiting.",
-            icon: "http://asset2.cfcdn.com/cfassets/images/logo-tab.png"
-        });
-
-    }, false);
-};	
-    </script>	
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="local-notification.js"></script>
+    <script type="text/javascript">
+        window.plugin.notification.local.add({ message: 'Great app!' });
+    </script>
 </html>
