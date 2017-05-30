@@ -44,6 +44,7 @@
 				<p><a href="#follows" data-role="button" data-icon="star">Follows</a>
 				<p><a href="#standings" data-role="button" data-icon="gear">Standings</a>  
 				<p><button onclick="testNotifications()">test powiadomie</button>
+				<button ng-click="notify()">notify</button>
 			</div>
 		</div>      				
 		<div id="about_popup" data-role="page" data-theme="a">
@@ -380,7 +381,7 @@
 	<!--http://wizard.uek.krakow.pl/~s179683/Web/order2/www/-->
 	<script>
 		  $("#inter").on('click', function(){
-		  var urlAPI = 'data.php';
+		  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
 		  var date = $('#fdate').val();
 		  var league = $('#fto').val();
 		  var link = 'https://apifootball.com/api/?action=get_events&from='+date+'&to='+date+'&league_id='+league+'&match_live=1';
@@ -433,7 +434,7 @@
 		</script>
 	<script>
 		  $('body').on('click','.result__item',function(){
-		  var urlAPI = 'data.php';
+		  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
 		  var elemID = $(this).attr('match_id');
 		  var elemDate = $(this).attr('data-date');
 		  var elemLeague = $(this).attr('data-league');
@@ -492,7 +493,7 @@
 	</script>
 	<script>
 		  $('body').on('click','.standings',function(){
-			  var urlAPI = 'data.php';
+			  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
 			  var elemLeague = $(this).attr('id');
 			var home = $(this).attr('data-home');
 			var away = $(this).attr('data-away');
@@ -550,7 +551,7 @@
 		</script>
 	<script>
 		  $('body').on('click','.bets',function(){
-			  var urlAPI = 'data2.php';
+			  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
 			var elemID = $(this).attr('id');
 			  var elemDate = $(this).attr('data-date');
 			var link = 'https://apifootball.com/api/?action=get_odds&from='+elemDate+'&to='+elemDate+'&match_id='+elemID; 
@@ -626,79 +627,18 @@
 		});		
 	 </script>
     <script>
-		document.addEventListener('deviceready', function () {
-			cordova.plugins.notification.local.registerPermission(function (granted) {
-				console.log('Permission has been granted: ' + granted);
-			});
-			// Schedule notification for tomorrow to remember about the meeting
-			cordova.plugins.notification.local.schedule({
-				id: 10,
-				title: "Meeting in 15 minutes!",
-				text: "Jour fixe Produktionsbesprechung",
-				at: tomorrow_at_8_45_am,
-				data: { meetingId:"#123FG8" }
-			});
-		}, false);
+ $scope.notify = function() {
+    console.log("com");
+    document.addEventListener('deviceready', function() {
+       // cordova.plugins.notification.local is now available
+        cordova.plugins.notification.local.schedule({
+            id:021,
+            title: "New Message",
+            message: "Hi, are you ready? We are waiting.",
+            icon: "http://asset2.cfcdn.com/cfassets/images/logo-tab.png"
+        });
 
-		function testNotifications() {
-
-		document.addEventListener("deviceready", function () {
-
-		  console.warn("testNotifications Started");
-
-		  // Checks for permission
-		  cordova.plugin.notification.local.hasPermission(function (granted) {
-
-			console.warn("Testing permission");
-
-			if( granted == false ) {
-
-			  console.warn("No permission");
-			  // If app doesnt have permission request it
-			  cordova.plugin.notification.local.registerPermission(function (granted) {
-
-				console.warn("Ask for permission");
-				if( granted == true ) {
-
-				  console.warn("Permission accepted");
-				  // If app is given permission try again
-				  testNotifications();
-
-				} else {
-				  alert("We need permission to show you notifications");
-				}
-
-			  });
-			} else {
-
-			  var pathArray = window.location.pathname.split( "/www/" ),
-				  secondLevelLocation = window.location.protocol +"//"+ pathArray[0],
-				  now = new Date();
-
-
-			  console.warn("sending notification");
-
-			  var isAndroid = false;
-
-			  if ( device.platform === "Android" ) {
-				isAndroid = true;
-			  }
-
-			  cordova.plugin.notification.local.schedule({
-				  id: 9,
-				  title: "Test notification 9",
-				  text: "This is a test notification",
-				  sound: isAndroid ? "file://sounds/notification.mp3" : "file://sounds/notification.caf",
-				  at: new Date( new Date().getTime() + 10 )
-				  // data: { secret:key }
-			  });
-
-			}
-
-		  });
-
-		  }, false);
-
-		};	
+    }, false);
+};	
     </script>	
 </html>
