@@ -10,9 +10,8 @@
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
-		<script type="text/javascript" src="PushNotification.js"></script>
 	</head>
-	<body onload="init()">
+	<body >
 		<div id="main" data-role="page" data-theme="a">
 			<div data-role="header" data-position="inline">
 				<h1>Live Sports APP</h1>
@@ -40,7 +39,7 @@
 				<p><a href="#live" data-role="button" data-icon="grid">Live</a>
 				<p><a href="#follows" data-role="button" data-icon="star">Follows</a>
 				<p><a href="#standings" data-role="button" data-icon="gear">Standings</a>  
-				<p><button onclick="testNotifications()">Test notification</button>
+				<p><button onclick="testNotifications()">test powiadomie</button>
 			</div>
 		</div>      				
 		<div id="about_popup" data-role="page" data-theme="a">
@@ -623,49 +622,6 @@
 			alert('My name is ' + localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname'));
 		});		
 	 </script>
-	 <script>
-	var now = new Date().getTime(),
-    _60_seconds_from_now = new Date(now + 60*1000);
-
-	window.plugin.notification.local.add({
-		id:      1, // is converted to a string
-		title:   'Reminder',
-		message: 'Dont forget to buy some flowers.',
-		repeat:  'weekly',
-		date:    _60_seconds_from_now
-	});
-	window.plugin.notification.local.add({ message: 'Great app!' });
-	var push = PushNotification.init({
-		android: {
-		},
-		browser: {
-			pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-		},
-		ios: {
-			alert: "true",
-			badge: "true",
-			sound: "true"
-		},
-		windows: {}
-	});
-
-	push.on('registration', function(data) {
-		// data.registrationId
-	});
-
-	push.on('notification', function(data) {
-		// data.message,
-		// data.title,
-		// data.count,
-		// data.sound,
-		// data.image,
-		// data.additionalData
-	});
-
-	push.on('error', function(e) {
-		// e.message
-	});    
-	</script>	
     <script>
 		var testNotifications = function () {
 
