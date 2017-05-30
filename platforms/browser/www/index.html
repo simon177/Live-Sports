@@ -275,7 +275,6 @@
 			</div>
 			<div data-role="content" data-theme="a" id="result">
 			</div>
-			<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
 		</div>
 		<div id="matchpage" data-role="page"  data-theme="a">
     <div data-role="header">
@@ -381,7 +380,7 @@
 	<!--http://wizard.uek.krakow.pl/~s179683/Web/order2/www/-->
 	<script>
 		  $("#inter").on('click', function(){
-		  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+		  var urlAPI = 'data.php';
 		  var date = $('#fdate').val();
 		  var league = $('#fto').val();
 		  var link = 'https://apifootball.com/api/?action=get_events&from='+date+'&to='+date+'&league_id='+league+'&match_live=1';
@@ -434,7 +433,7 @@
 		</script>
 	<script>
 		  $('body').on('click','.result__item',function(){
-		  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+		  var urlAPI = 'data.php';
 		  var elemID = $(this).attr('match_id');
 		  var elemDate = $(this).attr('data-date');
 		  var elemLeague = $(this).attr('data-league');
@@ -493,7 +492,7 @@
 	</script>
 	<script>
 		  $('body').on('click','.standings',function(){
-			  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+			  var urlAPI = 'data.php';
 			  var elemLeague = $(this).attr('id');
 			var home = $(this).attr('data-home');
 			var away = $(this).attr('data-away');
@@ -551,7 +550,7 @@
 		</script>
 	<script>
 		  $('body').on('click','.bets',function(){
-			  var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+			  var urlAPI = 'data2.php';
 			var elemID = $(this).attr('id');
 			  var elemDate = $(this).attr('data-date');
 			var link = 'https://apifootball.com/api/?action=get_odds&from='+elemDate+'&to='+elemDate+'&match_id='+elemID; 
@@ -627,8 +626,10 @@
 		});		
 	 </script>
     <script>
-<<<<<<< HEAD
 		document.addEventListener('deviceready', function () {
+			cordova.plugins.notification.local.registerPermission(function (granted) {
+				console.log('Permission has been granted: ' + granted);
+			});
 			// Schedule notification for tomorrow to remember about the meeting
 			cordova.plugins.notification.local.schedule({
 				id: 10,
@@ -638,8 +639,8 @@
 				data: { meetingId:"#123FG8" }
 			});
 		}, false);
-=======
-		var testNotifications = function () {
+
+		function testNotifications() {
 
 		document.addEventListener("deviceready", function () {
 
@@ -699,6 +700,5 @@
 		  }, false);
 
 		};	
->>>>>>> 996e2df9cc8e17f93dbf04d5070578fcb6ee66a8
     </script>	
 </html>
