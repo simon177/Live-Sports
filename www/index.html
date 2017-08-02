@@ -376,7 +376,7 @@
 	<!--http://wizard.uek.krakow.pl/~s180008/Web/order2/www/-->
 	<script>
 		  $("#inter").on('click', function(){
-		  var urlAPI = 'data.php';
+		  var urlAPI = 'http://wizard.uek.krakow.pl/~s180008/Web/order2/www/data.php';
 		  var date = $('#fdate').val();
 		  var league = $('#fto').val();
 		  var link = 'https://apifootball.com/api/?action=get_events&from='+date+'&to='+date+'&league_id='+league+'&match_live=1';
@@ -429,7 +429,7 @@
 		</script>
 	<script>
 		  $('body').on('click','.result__item',function(){
-		  var urlAPI = 'data.php';
+		  var urlAPI = 'http://wizard.uek.krakow.pl/~s180008/Web/order2/www/data.php';
 		  var elemID = $(this).attr('match_id');
 		  var elemDate = $(this).attr('data-date');
 		  var elemLeague = $(this).attr('data-league');
@@ -488,7 +488,7 @@
 	</script>
 	<script>
 		  $('body').on('click','.standings',function(){
-			  var urlAPI = 'data.php';
+			  var urlAPI = 'http://wizard.uek.krakow.pl/~s180008/Web/order2/www/data.php';
 			  var elemLeague = $(this).attr('id');
 			var home = $(this).attr('data-home');
 			var away = $(this).attr('data-away');
@@ -546,7 +546,7 @@
 		</script>
 	<script>
 		  $('body').on('click','.bets',function(){
-			  var urlAPI = 'data2.php';
+			  var urlAPI = 'http://wizard.uek.krakow.pl/~s180008/Web/order2/www/data2.php';
 			var elemID = $(this).attr('id');
 			  var elemDate = $(this).attr('data-date');
 			var link = 'https://apifootball.com/api/?action=get_odds&from='+elemDate+'&to='+elemDate+'&match_id='+elemID; 
