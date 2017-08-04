@@ -1,5 +1,8 @@
 <?php
-$APIkey='&APIkey=c32aaea92184703ba4a44f7840af8b0880adb8ec9b17745074b00a508f8ef2ee';
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET,PUT,POST,DELETE');
+header('Access-Control-Allow-Headers: Content-Type');
+$APIkey='&APIkey=ea7243e9a3c3855eb59a39bf1aa91b3008ccb85d8db4d1c1515a9110edc82e50';
 $link = $_POST['link'];
  
 $curl_options = array(
