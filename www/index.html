@@ -6,7 +6,8 @@
 	<meta name="description" content="Live Sports Hybrid App for ">
 	<meta name="author" content="Lukasz Dolezalek, Szymon Banowski">
 	<title>Live Sports APP - On time notification</title>
-	<link rel="stylesheet" href="themes/Bootstrap.css">
+	<!--<link rel="stylesheet" href="themes/Bootstrap.css">-->
+	<link rel="stylesheet"  href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css"/>
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"/>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -290,13 +291,14 @@
 											</form>
 											<a href="#find_match_results" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live
 												Match</a>
+											</div>
 												<!--<p class="event received" onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Device is
 													Ready</p>-->
 													<p>
 														<p>Date Feature for test
 															<input type="text" id="date-input" data-inline="false" data-role="date">
 															<p>
-															</div>
+															<div> <label for="input-date">Input date</label> <input id="input-date" type="date" value="2014-10-31"> <span class="result"></span> </div>
 											</div>
 
 
@@ -413,6 +415,7 @@
 													</body>
 													<!--http://wizard.uek.krakow.pl/~s179683/Web/order2/www/-->
 													<!--http://wizard.uek.krakow.pl/~s180008/Web/order2/www/-->
+													<script src="cordova.js"></script>
 													<script>
 													$("#inter").on('click', function () {
 														var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';

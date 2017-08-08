@@ -15,6 +15,7 @@
 	<script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
 	<script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
 	<script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+
 </head>
 <body>
 
@@ -30,7 +31,7 @@
 					<a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
 				</li>
 				<li>
-					<a href="#settings" data-rel="settings" data-icon="gear">Settings</a>
+					<a href="test.html" data-rel="settings" data-icon="gear">Settings</a>
 				</li>
 				<li>
 					<a href="sms.html" data-rel="contact"  data-icon="gear">Contact</a>
@@ -47,13 +48,14 @@
 				<input type="button" onclick="app.sendSms()" value="Send SMS" />
 			</form>
 			<p>Date Feature for test
-				<input type="text" id="date-input" data-inline="false" data-role="date">
+				<input type="text" id="date-input datepicker" data-inline="false" data-role="date">
 		</div>
-	</div>
 
+	</div>
 
 	<script src="cordova.js"></script>
 	<!--<script src="js/app.js"></script>-->
+
 	<script>
 	var app = {
 		sendSms: function() {
