@@ -1,0 +1,3 @@
+<!-- To do! After search matche, if user click on match_results_page add data about this match to local storage, if user click remind me, read data from local storage redirect to page sms.html and paste this data as a message text, create event on system calendar.-->
+<!-- To do! After click follows read from local storage list of matches that user click to remind-->
+<!-- To do! Standings, Odds, Connect System Event calendar -->
