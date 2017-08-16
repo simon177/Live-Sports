@@ -23,9 +23,9 @@
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
 
 </head>
-<body onload="checkConnection">
+<body>
 <!-- *** Main Page *** -->
-<div id="main" data-role="page" data-theme="a">
+<div id="main" data-role="page" data-theme="a"  onload="checkConnection">
     <div data-role="header" data-position="inline">
         <h1>Live Sports APP</h1>
         <div data-role="navbar">
@@ -37,7 +37,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="#test" data-rel="settings" data-icon="gear">TEST</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
                     <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
@@ -130,32 +130,28 @@
             </ul>
         </div>
     </div>
-    <div data-role="content" data-theme="b">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-            $(function () {
-                $.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' });
-                $("#datepicker").datepicker();
-                //$("#format").on("change", function () {
-                //    $("#datepicker").datepicker("option", "dateFormat", $(this).val());
-                //});
-            });
-        </script>
-        <p>Date: <input type="text" id="datepicker" size="30" /></p>
-        <!--<p>Format options:<br>
-            <select id="format">
-                <option value="yy-mm-dd">YYYY-MM-DD</option>
-                <!--<option value="mm/dd/yy">Default - mm/dd/yy</option>
-                <option value="d M, y">Short - d M, y</option>
-                <option value="d MM, y">Medium - d MM, y</option>
-                <option value="DD, d MM, yy">Full - DD, d MM, yy</option>
-                <option value="&apos;day&apos; d &apos;of&apos; MM &apos;in the year&apos; yy">With text - 'day' d 'of'
-                    MM 'in the year' yy
-                </option>
-            </select>
-        </p>-->
+    <div data-role="content" data-theme="a">
+        <a data-role="button" id="checkConnection" data-theme="e" onclick="checkConnection()">Check Network</a>
+        <h3>Online / Offline Section</h3>
+        <p id="online">Example content that is displayed when the device <strong>has</strong> Internet connectivity.</p>
+        <p id="offline">Example content that is displayed when the device <strong>doesn’t have</strong> Internet connectivity.</p>
+
     </div>
+    <script>
+      function checkConnection() {
+        var networkState = navigator.connection.type;
+        var states = {};
+        states[Connection.UNKNOWN] = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI] = 'WiFi connection';
+        states[Connection.CELL_2G] = 'Cell 2G connection';
+        states[Connection.CELL_3G] = 'Cell 3G connection';
+        states[Connection.CELL_4G] = 'Cell 4G connection';
+        states[Connection.CELL] = 'Cell generic connection';
+        states[Connection.NONE] = 'No network connection';
+        alert('Connection type: ' + states[networkState]);
+      }
+    </script>
 </div>
 
 <!-- *** Find Match ***-->
@@ -646,20 +642,20 @@
 </script>
 
 <script>
-  function checkConnection() {
-      var networkState = navigator.connection.type;
+    function checkConnection() {
+        var networkState = navigator.connection.type;
 
-      var states = {};
-      states[Connection.UNKNOWN]  = 'Unknown connection';
-      states[Connection.ETHERNET] = 'Ethernet connection';
-      states[Connection.WIFI]     = 'WiFi connection';
-      states[Connection.CELL_2G]  = 'Cell 2G connection';
-      states[Connection.CELL_3G]  = 'Cell 3G connection';
-      states[Connection.CELL_4G]  = 'Cell 4G connection';
-      states[Connection.CELL]     = 'Cell generic connection';
-      states[Connection.NONE]     = 'No network connection';
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.CELL]     = 'Cell generic connection';
+        states[Connection.NONE]     = 'No network connection';
 
-      alert('Connection type: ' + states[networkState]);
-  }
+        alert('Connection type: ' + states[networkState]);
+    }
 </script>
 </html>
