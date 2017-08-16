@@ -40,7 +40,7 @@
                     <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
-                    <a href="#smshtml" data-rel="contact" data-icon="gear">SMS</a>
+                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
                 </li>
             </ul>
         </div>
@@ -355,57 +355,6 @@
 
 </div>
 
-<div id="smshtml" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-      <h1 class="title">Live Sports APP</h1>
-  		<div data-role="navbar">
-  			<ul>
-  				<li>
-  					<a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-  				</li>
-  				<li>
-  					<a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-  				</li>
-  				<li>
-  					<a href="test.html" data-rel="settings" data-icon="gear">Settings</a>
-  				</li>
-  				<li>
-  					<a href="sms.html" data-rel="contact"  data-icon="gear">Contact</a>
-  				</li>
-  			</ul>
-  		</div>
-    </div>
-    <div role="main" data-dialog="true" data-theme="b" class="ui-content">
-      <form>
-				<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
-				<textarea id="messageTxt" placeholder="Enter message"></textarea>
-				<input type="button" onclick="app.sendSms()" value="Send SMS" />
-			</form>
-    </div>
-    <script>
-    var app = {
-      sendSms: function() {
-        var number = document.getElementById('numberTxt').value;
-        var message = document.getElementById('messageTxt').value;
-        console.log("number=" + number + ", message= " + message);
-
-        //CONFIGURATION
-        var options = {
-          replaceLineBreaks: false, // true to replace \n by a new line, false by default
-          android: {
-            intent: 'INTENT'  // send SMS with the native android SMS messaging
-            //intent: '' // send SMS without open any other app
-          }
-        };
-
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(number, message, options, success, error);
-      }
-    };
-    </script>
-</div>
-
 </body>
 
 <!--http://wizard.uek.krakow.pl/~s179683/Web/order2/www/-->
@@ -700,8 +649,13 @@
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
+        if ((states[networkState]) == states[Connection.NONE])
+        {
+          alert("Please check your internet connectivity and try again for full app functionality");
+        }
+        else
+          alert('Connection type: ' + states[networkState]);
 
-        alert('Connection type: ' + states[networkState]);
     }
 </script>
 </html>
