@@ -58,7 +58,7 @@
 <!-- *** About Page *** -->
 <div id="about_popup" data-role="page" data-theme="a">
     <div data-role="header" data-position="inline">
-        <h1>LIVESPORTS-APP</h1>
+        <h1>Live Sports APP</h1>
         <div data-role="navbar">
             <ul>
                 <li>
@@ -68,7 +68,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="#test" data-rel="settings" data-icon="gear">TEST</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
                     <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
@@ -122,7 +122,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="#test" data-rel="settings" data-icon="gear">TEST</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
                     <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
@@ -142,25 +142,26 @@
 <!-- *** Find Match ***-->
 <div id="find_match" data-role="page" data-theme="a">
     <div data-role="header" data-position="inline">
-        <h1>LIVESPORTS-APP</h1>
+        <h1>Live Sports APP</h1>
         <div data-role="navbar">
             <ul>
                 <li>
                     <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
                 </li>
                 <li>
-                    <a href="" data-icon="search">About</a>
+                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Settings</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Contact</a>
+                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
                 </li>
             </ul>
         </div>
     </div>
     <div data-role="content" data-theme="a" style="text-align: center;">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
@@ -261,20 +262,20 @@
 <!-- *** Live ***-->
 <div id="live" data-role="page" data-theme="a">
     <div data-role="header" data-position="inline">
-        <h1>LIVESPORTS-APP</h1>
+        <h1>Live Sports APP</h1>
         <div data-role="navbar">
             <ul>
                 <li>
                     <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
                 </li>
                 <li>
-                    <a href="" data-icon="search">About</a>
+                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Settings</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Contact</a>
+                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
                 </li>
             </ul>
         </div>
@@ -288,20 +289,20 @@
 <!-- *** Follows ***-->
 <div id="follows" data-role="page" data-theme="a">
     <div data-role="header" data-position="inline">
-        <h1>LIVESPORTS-APP</h1>
+        <h1>Live Sports APP</h1>
         <div data-role="navbar">
             <ul>
                 <li>
                     <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
                 </li>
                 <li>
-                    <a href="" data-icon="search">About</a>
+                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Settings</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Contact</a>
+                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
                 </li>
             </ul>
         </div>
@@ -315,20 +316,20 @@
 <!-- *** Standings ***-->
 <div id="standings" data-role="page" data-theme="a">
     <div data-role="header" data-position="inline">
-        <h1>LIVESPORTS-APP</h1>
+        <h1>Live Sports APP</h1>
         <div data-role="navbar">
             <ul>
                 <li>
                     <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
                 </li>
                 <li>
-                    <a href="" data-icon="search">About</a>
+                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Settings</a>
+                    <a href="#test" data-rel="test">Check Network</a>
                 </li>
                 <li>
-                    <a href="" data-icon="gear">Contact</a>
+                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
                 </li>
             </ul>
         </div>
@@ -626,7 +627,8 @@
     });
 </script>
 
-<script type="text/javascript" charset="utf-8">
+<!-- *** Check Network Connection *** -->
+<script>
 
     // Wait for PhoneGap to load
     //
@@ -658,4 +660,5 @@
 
     }
 </script>
+
 </html>
