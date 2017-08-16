@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET,PUT,POST,DELETE');
+header('Access-Control-Allow-Headers: Content-Type');
 $APIkey='&APIkey=ea7243e9a3c3855eb59a39bf1aa91b3008ccb85d8db4d1c1515a9110edc82e50';
 $link = $_POST['link'];
  
