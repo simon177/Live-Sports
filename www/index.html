@@ -166,7 +166,7 @@
         <script>
             $(function () {
                 $.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' });
-                $("#fdate").datepicker();
+                $("#date").datepicker();
                 //$("#format").on("change", function () {
                 //    $("#datepicker").datepicker("option", "dateFormat", $(this).val());
                 //});
@@ -219,7 +219,7 @@
                 <option value="490">Ukraine - Premier League</option>
             </select>
             </label>
-            <label for="fdate">Date: <input type="text" name="fdate" id="fdate" size="30">
+            <label for="date">Date: <input type="text" name="date" id="date" size="30">
             </label>
         </form>
         <a href="#find_match_results" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live
@@ -364,7 +364,7 @@
 <script>
     $("#inter").on('click', function () {
         var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
-        var date = $('#fdate').val();
+        var date = $('#date').val();
         var league = $('#fto').val();
         var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&league_id=' + league + '&match_live=1';
         $.ajax({
@@ -654,7 +654,7 @@
           alert("Please check your internet connectivity and try again for full app functionality");
         }
         else
-          alert('Connection type: ' + states[networkState]);
+          alert('Internet connectivity detected. Connection type: ' + states[networkState]);
 
     }
 </script>
