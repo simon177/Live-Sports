@@ -265,6 +265,7 @@
     </div>
         <div data-role="main" class="ui-content result__item__label" id="matchDetails">
 </div>
+</div>
 
 <!-- *** Live ***-->
 <div id="live" data-role="page" data-theme="a">
@@ -362,22 +363,24 @@
 
 
 </div>-->
-<div data-role="page" id="standingsPage">
+<div data-role="page" id="standingsPage" data-dialog="true">
 			<div data-role="header" data-theme="a">
 				<h1>Standings</h1>
 			</div>
 			<div role="main" class="ui-content" id="standingsResult">
 			</div>
 			</div>
-			
-			
-<div data-role="page" id="oddsPage">
+
+<div data-role="page" id="oddsPage" data-dialog="true">
 			<div data-role="header" data-theme="a">
 				<h1>Odds</h1>
 			</div>
 			<div role="main" class="ui-content" id="oddsResult">
 			</div>
-</div>
+			</div>
+			
+			
+
 
 </body>
 
@@ -525,7 +528,7 @@
                         html += '</tr>';
                     }
                     else {
-                        html += '<tr style="color:blue;">';
+                        html += '<tr>';
                         html += '<th>' + value.overall_league_position + '</th>';
                         html += '<th>' + value.team_name + '</th>';
                         html += '<th>' + value.overall_league_payed + '</th>';
@@ -538,6 +541,7 @@
                         html += '</tr>';
                     }
                 });
+				console.log(html);
                 $('#standingsResult').html(html);
             }
         });
