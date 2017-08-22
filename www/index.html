@@ -51,7 +51,7 @@
         <p><a href="#find_match" data-role="button" data-icon="search">Find Match</a>
         <p><a href="#live" data-role="button" data-icon="grid">Live</a>
         <p><a href="#follows" data-role="button" data-icon="star">Follows</a>
-        <p><a href="#standings" data-role="button" data-icon="gear">Standings</a>
+        <p><a href="#standings2" data-role="button" data-icon="gear">Standings</a>
     </div>
 </div>
 
@@ -254,9 +254,7 @@
         <a href="#find_match_results" data-icon="back" style="position: inherit;">Back to Search Matches</a>
 
     </div>
-    <label class="">
         <div data-role="main" class="ui-content result__item__label" id="matchDetails">
-    </label>
 </div>
 
 <!-- *** Live ***-->
@@ -314,7 +312,7 @@
 </div>
 
 <!-- *** Standings ***-->
-<div id="standings" data-role="page" data-theme="a">
+<!--<div id="standingsPage" data-role="page" data-theme="a">
     <div data-role="header" data-position="inline">
         <h1>Live Sports APP</h1>
         <div data-role="navbar">
@@ -354,6 +352,22 @@
     </div>
 
 
+</div>-->
+<div data-role="page" id="standingsPage">
+			<div data-role="header" data-theme="a">
+				<h1>Standings</h1>
+			</div>
+			<div role="main" class="ui-content" id="standingsResult">
+			</div>
+			</div>
+			
+			
+<div data-role="page" id="oddsPage">
+			<div data-role="header" data-theme="a">
+				<h1>Odds</h1>
+			</div>
+			<div role="main" class="ui-content" id="oddsResult">
+			</div>
 </div>
 
 </body>
@@ -445,12 +459,8 @@
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
                 }
                 html += '</div>';
-                html += '<div class="result__item__heds">';
                 html += '<a href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a>';
-                html += '</div>';
-                html += '<div class="result__item__heds">';
                 html += '<a href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a>';
-                html += '</div>';
                 $.each(formatedData[0].goalscorer, function (key, value) {
                     html += '<div class="goalscorers">';
                     html += '<label>' + value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
@@ -519,7 +529,7 @@
                         html += '</tr>';
                     }
                 });
-                $('#standings').html(html);
+                $('#standingsResult').html(html);
             }
         });
     });
