@@ -49,7 +49,7 @@
         <h2 style="text-align: center;">YOUR FAVORITE SOURCE OF SPORT EVENTS</h2>
         <h4 style="text-align: center;">Be Always Notify On Time</h4>
         <p><a href="#find_match" data-role="button" data-icon="search">Find Match</a>
-        <p><a href="#live" data-role="button" data-icon="grid">Live</a>
+        <p><a href="#matches_live" data-role="button" data-icon="grid" id = "liveButton">Live</a>
         <p><a href="#follows" data-role="button" data-icon="star">Follows</a>
         <p><a href="#standings2" data-role="button" data-icon="gear">Standings</a>
     </div>
@@ -240,6 +240,14 @@
 </div>
 
 <!-- *** Find Match Results ***-->
+<div id="matches_live" data-role="page" data-theme="a">
+    <div data-role="header">
+        <a href="index.html" data-icon="back" style="position: inherit;">Back to MainPage</a>
+    </div>
+    <div data-role="content" data-theme="a" id="LiveResult">
+    </div>
+</div>
+
 <div id="find_match_results" data-role="page" data-theme="a">
     <div data-role="header">
         <a href="#find_match" data-icon="back" style="position: inherit;">Back to Search Matches</a>
@@ -247,6 +255,7 @@
     <div data-role="content" data-theme="a" id="result">
     </div>
 </div>
+
 
 <!-- *** Match Page ***-->
 <div id="matchpage" data-role="page" data-theme="a">
@@ -563,6 +572,53 @@
                     html += '</div>';
                 });
                 $('#oddsResult').html(html);
+            }
+        });
+    });
+</script>
+<script>
+    $("#liveButton").on('click', function () {
+        var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+		var yyyy = today.getFullYear();
+		if(dd<10) {
+		dd = '0'+dd
+		} 
+		if(mm<10) {
+		mm = '0'+mm
+		} 
+		date = yyyy + '-' + mm + '-' + dd;
+		console.log(date);
+        var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&match_live=1';
+        $.ajax({
+            url: urlAPI,
+            type: 'POST',
+            data: {
+                'link': link,
+            },
+            //zamiana odpowiedzi json na string
+            success: function (result) {
+                var returnedData = JSON.parse(result);
+                var formatedData = JSON.parse(returnedData);
+                var html = '';
+                if (formatedData.error == 404) {
+                    html = 'No live matches';
+                    $('#LiveResult').html(html);
+                }
+                else {
+                    $.each(formatedData, function (key, value) {
+                        if (value.match_status != 'FT' && value.match_status != 'Canc.' && value.match_status != '' && value.match_status != 'Postp.') {
+                            html += '<a href="#matchpage">';
+                            html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
+                            html += '<label>' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label>';
+                            html += '</div>';
+                            html += '</a>';
+                        }
+                    });
+                }
+                $('#LiveResult').html(html);
             }
         });
     });
