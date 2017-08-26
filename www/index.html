@@ -722,8 +722,21 @@
  $('body').on('click', '.matchFollow', function () {
 	var elemID = $(this).attr('data-matchdate');
     var elemDate = $(this).attr('data-matchId');
+	var len=localStorage.length;
+	var identifier = '';
+	for(var i=0; i<=len; i++){
+    var key = localStorage.key(i);
+	if(elemID == key){
+	identifier = 1;
+	}
+	}
+	if(identifier = 1){
 	localStorage.setItem(elemDate, elemID);
-	alert("You are now following this match, to easy check the score, click button following in main menu")
+	alert("You are now following this match, to easy check the score, click button following in main menu");
+	}
+	else{
+	alert("You are already following this match");
+	}
  }); 
 </script>
 <script>
@@ -780,15 +793,15 @@
         var hour = timeD.substring(0,2);
         var minutes = timeD.substring(3,5);
 		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-		calOptions.firstReminderMinutes = 30;
-		calOptions.secondReminderMinutes = 10;
+		calOptions.firstReminderMinutes = 5;
+		calOptions.secondReminderMinutes = 30;
 		var startDate = new Date(year, month-1, day, hour, minutes); // beware: month 0 = january, 11 = december
         var endDate = new Date(year, month-1, day, hour, minutes);
         var title = home + ' - ' + away;
         var eventLocation = home + " Stadium";
         var notes = "Don't forget";
         var success = function (message) {
-            alert("Success: Match saved correctly");
+            alert("Success: Reminder set correctly");
         };
         var error = function (message) {
             alert("Error: something went wrong");
