@@ -769,22 +769,22 @@
 </script>
 <script>
     $('body').on('click', '#reminder', function () {
-        //var home = $(this).attr('data-home').replace(/_/g," ");
-        //var away= $(this).attr('data-away').replace(/_/g," ");
-        //var dateD = $(this).attr('data-date');
-        //var timeD = $(this).attr('data-time');
-        //var year = dateD.substring(0,4);
-        //var month = dateD.substring(5,7);
-        //var day = dateD.substring(8,10);
-        //var hour = timeD.substring(0,2);
-        //var minutes = timeD.substring(3,5);
-        var startDate = new Date(2017, 05, 22, 18, 00); // beware: month 0 = january, 11 = december
-        var endDate = new Date(2017, 05, 22, 19, 00);
-        var title = "My nice event";
-        var eventLocation = "Home";
-        var notes = "Some notes about this event.";
+        var home = $(this).attr('data-home').replace(/_/g," ");
+        var away= $(this).attr('data-away').replace(/_/g," ");
+        var dateD = $(this).attr('data-date');
+        var timeD = $(this).attr('data-time');
+        var year = dateD.substring(0,4);
+        var month = dateD.substring(5,7);
+        var day = dateD.substring(8,10);
+        var hour = timeD.substring(0,2);
+        var minutes = timeD.substring(3,5);
+        var startDate = new Date(year, month, day, hour, minutes); // beware: month 0 = january, 11 = december
+        var endDate = new Date(year, month, day, hour, minutes);
+        var title = home + ' ' + away;
+        var eventLocation = home + "stadium";
+        var notes = "Don't forget";
         var success = function (message) {
-            alert("Success: " + JSON.stringify(message));
+            alert("Success: Match saved correctly");
         };
         var error = function (message) {
             alert("Error: " + message);
