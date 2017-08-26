@@ -50,8 +50,8 @@
         <h4 style="text-align: center;">Be Always Notify On Time</h4>
         <p><a href="#find_match" data-role="button" data-icon="search">Find Match</a>
         <p><a href="#matches_live" data-role="button" data-icon="grid" id = "liveButton">Live</a>
-        <p><a href="#follows" data-role="button" data-icon="star">Follows</a>
-        <p><a href="#standings2" data-role="button" data-icon="gear">Standings</a>
+        <p><a href="#follows" data-role="button" data-icon="star" id="goToFollow">Follows</a>
+        <p><a href="#find_standings" data-role="button" data-icon="gear">Standings</a>
     </div>
 </div>
 
@@ -226,6 +226,78 @@
         <a href="#find_match_results" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live
             Match</a>
     </div>
+	</div>
+	<div id="find_standings" data-role="page" data-theme="a">
+    <div data-role="header" data-position="inline">
+        <h1>Live Sports APP</h1>
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                </li>
+                <li>
+                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                </li>
+                <li>
+                    <a href="#test" data-rel="test">Check Network</a>
+                </li>
+                <li>
+                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+        <h2 style="text-align: center;">Find Match</h2>
+        <form method="post" action="/action_page_post.php">
+            <label for="">Fill in all fields on the form</label>
+            <label for="fleague">League: <select name="fleague" id="fleague" data-clear-btn="true">
+                <option value="62">England - Premier League</option>
+                <option value="79">Italy - Serie A</option>
+                <option value="109">Spain - Liga BBVA</option>
+                <option value="117">Germany - Bundesliga</option>
+                <option value="127">France - Ligue 1</option>
+                <option value="137">Netherlands - Eredivisie</option>
+                <option value="144">Belgium - Pro Lig</option>
+                <option value="150">Portugal - Primeira Liga</option>
+                <option value="176">Scotland - Premiership</option>
+                <option value="274">Austria - Bundesliga</option>
+                <option value="280">Cyprus - 1st League</option>
+                <option value="284">Denmark - Superliga</option>
+                <option value="293">Finland - Veikkausliiga</option>
+                <option value="306">Greece - Super League</option>
+                <option value="325">Iceland - Urvalsdeild</option>
+                <option value="329">Ireland - Airtricity League</option>
+                <option value="334">Luxemburg - National Division</option>
+                <option value="337">Norway - Tippeligaen</option>
+                <option value="345">North. Ireland - Premiership</option>
+                <option value="350">Sweden - Allsvenskan</option>
+                <option value="368">Switzerland - Super League</option>
+                <option value="376">Turkey - Super Lig</option>
+                <option value="395">Wales - Premier League</option>
+                <option value="400">Belarus - Premier</option>
+                <option value="403">Bosnia & Herz. - Premijer Liga</option>
+                <option value="407">Bulgaria - A PFG</option>
+                <option value="411">Croatia - 1st League</option>
+                <option value="415">Czech Rep. - Synot League</option>
+                <option value="419">Estonia - Premium Liiga</option>
+                <option value="424">Hungary - OTP BANK Liga</option>
+                <option value="441">Latvia - Virsliga</option>
+                <option value="444">Lithuania - A Lyga</option>
+                <option value="447">Moldova - National Division</option>
+                <option value="450">Montenegro - Telekom 1</option>
+                <option value="453">Poland - Ekstraklasa</option>
+                <option value="459">Romania - Liga 1</option>
+                <option value="469">Russia - Premier League</option>
+                <option value="478">Serbia - Super Liga</option>
+                <option value="481">Slovakia - Fortuna League</option>
+                <option value="486">Slovenia - 1st SNL</option>
+                <option value="490">Ukraine - Premier League</option>
+            </select>
+        </form>
+        <a href="#find_standings2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="findStan">Search</a>
+    </div>
+
 
 
     <!--<p class="event received" onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Device is
@@ -239,12 +311,21 @@
             class="result"></span></div>-->
 </div>
 
+
 <!-- *** Find Match Results ***-->
 <div id="matches_live" data-role="page" data-theme="a">
     <div data-role="header">
         <a href="index.html" data-icon="back" style="position: inherit;">Back to MainPage</a>
     </div>
     <div data-role="content" data-theme="a" id="LiveResult">
+    </div>
+</div>
+
+<div id="find_standings2" data-role="page" data-theme="a">
+    <div data-role="header">
+        <a href="index.html" data-icon="back" style="position: inherit;">Back to MainPage</a>
+    </div>
+    <div data-role="content" data-theme="a" id="standingsMenuResult">
     </div>
 </div>
 
@@ -315,10 +396,9 @@
             </ul>
         </div>
     </div>
-    <div data-role="content" data-theme="a">
+    <div data-role="content" data-theme="a" id ="followResult">
         <h2 style="text-align: center;">Follows</h2>
-
-    </div>
+	</div>
 </div>
 
 <!-- *** Standings ***-->
@@ -462,14 +542,18 @@
                 html += '<label>' + formatedData[0].league_name + ' - ' + formatedData[0].country_name + '</label>';
                 html += '<label>' + formatedData[0].match_date + ' ' + formatedData[0].match_time + '</label>';
                 if (formatedData[0].match_status == "") {
-                    html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind Me!</button>';
+                    html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+					html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind Me!</button>';
+					html += '<button data-matchdate='+formatedData[0].match_date + ' data-matchId='+formatedData[0].match_id+' id="followMatch" class="matchFollow">Follow Match</button>';
                 }
                 else if (formatedData[0].match_status == 'FT') {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
                 }
                 else {
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
-                }
+					html += '<button data-matchdate='+formatedData[0].match_date + ' data-matchId='+formatedData[0].match_id+' id="followMatch" class="matchFollow">Follow Match</button>';
+
+				}
                 html += '</div>';
                 html += '<a href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a>';
                 html += '<a href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a>';
@@ -566,12 +650,12 @@
                 var html = '';
                 $.each(returnedData, function (key, value) {
                     html += '<div>';
-                    html += '<tr>';
-                    html += '<th>' + value.odd_bookmakers + '</th>';
-                    html += '<th>' + value.odd_1 + '</th>';
-                    html += '<th>' + value.odd_x + '</th>';
-                    html += '<th>' + value.odd_2 + '</th>';
-                    html += '</tr>';
+                    //html += '<tr>';
+                    //html += '<th>' + value.odd_bookmakers + '</th>';
+                    //html += '<th>' + value.odd_1 + '</th>';
+                    //html += '<th>' + value.odd_x + '</th>';
+                    //html += '<th>' + value.odd_2 + '</th>';
+                    //html += '</tr>';
                     html += '<p>' + value.odd_bookmakers + '  ' + value.odd_1 + '  ' + value.odd_x + '  ' + value.odd_2 + '</p>';
                     html += '</div>';
                 });
@@ -627,7 +711,62 @@
         });
     });
 </script>
-
+<script>
+ $('body').on('click', '.matchFollow', function () {
+	var elemID = $(this).attr('data-matchdate');
+    var elemDate = $(this).attr('data-matchId');
+	 localStorage.setItem(elemDate, elemID);
+ }); 
+</script>
+<script>
+ $('body').on('click', '.matchFollow', function () {
+	var elemID = $(this).attr('data-matchdate');
+    var elemDate = $(this).attr('data-matchId');
+	 localStorage.setItem(elemDate, elemID);
+ }); 
+</script>
+<script>
+    $("#goToFollow").on('click', function () {
+	var len=localStorage.length;
+	for(var i=len-1; i>=0; i--){
+    var key = localStorage.key(i);
+    var value = localStorage[key];
+	var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';    
+    var link = 'https://apifootball.com/api/?action=get_events&from='+value+'&to=' + value + '&match_id=' + key;
+	var html = '';
+        $.ajax({
+            url: urlAPI,
+            type: 'POST',
+            data: {
+                'link': link,
+            },
+            //zamiana odpowiedzi json na string
+            success: function (result) {
+                var returnedData = JSON.parse(result);
+                var formatedData = JSON.parse(returnedData);
+                html += '<div class="'+formatedData[0].match_id+'_resultsfromFollow">';
+                if (formatedData[0].match_status == "") {
+					html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+                }
+                else if (formatedData[0].match_status == 'FT') {
+                    html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
+                }
+                else {
+                    html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
+                }
+					html += '<div class="'+formatedData[0].match_id+'_goalscorers_follow">';
+				$.each(formatedData[0].goalscorer, function (key, value) {
+                    html += '<label>&nbsp'+value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
+                });
+					html += '</div>';
+					html += '<label>-----------</label>';
+					html += '</div>';
+                $('#followResult').html(html);
+            }
+        });
+}
+	});
+</script>
 <script>
     $('body').on('click', '#reminder', function () {
         //var home = $(this).attr('data-home').replace(/_/g," ");
@@ -652,6 +791,43 @@
         };
         var calOptions = window.plugins.calendar.getCalendarOptions();
         window.plugins.calendar.createEvent(title, eventLocation, notes, startDate, endDate, success, error);
+    });
+</script>
+<script>
+     $("#findStan").on('click', function () {
+        var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+		var league = $('#fleague').val();
+        var link = 'https://apifootball.com/api/?action=get_standings&league_id=' + league;
+        $.ajax({
+            url: urlAPI,
+            type: 'POST',
+            data: {
+                'link': link,
+            },
+            //zamiana odpowiedzi json na string
+            success: function (result) {
+                var returnedData = JSON.parse(result);
+                var formatedData = JSON.parse(returnedData);
+                formatedData.sort(function (a, b) {
+                    return parseFloat(a.overall_league_position) - parseFloat(b.overall_league_position);
+                });
+                var html = '';
+                $.each(formatedData, function (key, value) {
+                        html += '<tr>';
+                        html += '<th>' + value.overall_league_position + '</th>';
+                        html += '<th>' + value.team_name + '</th>';
+                        html += '<th>' + value.overall_league_payed + '</th>';
+                        html += '<th>' + value.overall_league_W + '</th>';
+                        html += '<th>' + value.overall_league_D + '</th>';
+                        html += '<th>' + value.overall_league_L + '</th>';
+                        html += '<th>' + value.overall_league_GF + '</th>';
+                        html += '<th>' + value.overall_league_GA + '</th>';
+                        html += '<th>' + value.overall_league_PTS + '</th>';
+                        html += '</tr>'
+                });
+                $('#standingsMenuResult').html(html);
+            }
+        });
     });
 </script>
 
