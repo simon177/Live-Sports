@@ -780,8 +780,9 @@
         var hour = timeD.substring(0,2);
         var minutes = timeD.substring(3,5);
 		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-		calOptions.firstReminderMinutes = 10; // default is 60, pass in null for no reminder (alarm)
-        var startDate = new Date(year, month-1, day, hour, minutes); // beware: month 0 = january, 11 = december
+		calOptions.firstReminderMinutes = 30;
+		calOptions.secondReminderMinutes = 10;
+		var startDate = new Date(year, month-1, day, hour, minutes); // beware: month 0 = january, 11 = december
         var endDate = new Date(year, month-1, day, hour, minutes);
         var title = home + ' - ' + away;
         var eventLocation = home + " Stadium";
@@ -792,8 +793,8 @@
         var error = function (message) {
             alert("Error: something went wrong");
         };
-        window.plugins.calendar.createEvent(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
-    });
+		window.plugins.calendar.createEventInteractivelyWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
+		});
 </script>
 <script>
      $("#findStan").on('click', function () {
