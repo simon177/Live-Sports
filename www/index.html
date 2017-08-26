@@ -722,7 +722,8 @@
  $('body').on('click', '.matchFollow', function () {
 	var elemID = $(this).attr('data-matchdate');
     var elemDate = $(this).attr('data-matchId');
-	 localStorage.setItem(elemDate, elemID);
+	localStorage.setItem(elemDate, elemID);
+	alert("You are now following this match, to easy check the score, click button following in main menu")
  }); 
 </script>
 <script>
@@ -779,8 +780,7 @@
         var hour = timeD.substring(0,2);
         var minutes = timeD.substring(3,5);
 		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-		calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
-		calOptions.secondReminderMinutes = 5;
+		calOptions.firstReminderMinutes = 10; // default is 60, pass in null for no reminder (alarm)
         var startDate = new Date(year, month-1, day, hour, minutes); // beware: month 0 = january, 11 = december
         var endDate = new Date(year, month-1, day, hour, minutes);
         var title = home + ' - ' + away;
