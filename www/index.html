@@ -713,29 +713,25 @@
 </script>
 <script>
  $('body').on('click', '.matchFollow', function () {
-	var elemID = $(this).attr('data-matchdate');
-    var elemDate = $(this).attr('data-matchId');
-	 localStorage.setItem(elemDate, elemID);
- }); 
-</script>
-<script>
- $('body').on('click', '.matchFollow', function () {
-	var elemID = $(this).attr('data-matchdate');
-    var elemDate = $(this).attr('data-matchId');
+	var elemDate = $(this).attr('data-matchdate');
+    var elemID = $(this).attr('data-matchId');
 	var len=localStorage.length;
-	var identifier = '';
-	for(var i=0; i<=len; i++){
+	var identifier=0;
+	console.log(identifier);
+	for(var i=0; i<len; i++){
     var key = localStorage.key(i);
+	console.log(key+' '+elemID)
 	if(elemID == key){
-	identifier = 1;
+	identifier=1;
+	console.log(identifier);
 	}
 	}
-	if(identifier = 1){
-	localStorage.setItem(elemDate, elemID);
-	alert("You are now following this match, to easy check the score, click button following in main menu");
+	if(identifier == 1){
+	alert("You are already following this match");
 	}
 	else{
-	alert("You are already following this match");
+	localStorage.setItem(elemID, elemDate);
+	alert("You are now following this match, to easy check the score, click button following in main menu");
 	}
  }); 
 </script>
