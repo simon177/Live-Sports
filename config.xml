@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="LiveSports-APP-testv2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>LiveSports-APP-testV2</name>
-    <description>LiveSports-APP for tracking sport events</description>
+<widget id="Live-Sports" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Live-Sports</name>
+    <description>LiveSports-APP for tracking football events</description>
     <author email="szymon.banowski@gmail.com">
 		Szymon Banowski
 	</author>
