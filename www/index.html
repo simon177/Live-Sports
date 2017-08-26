@@ -470,10 +470,15 @@
 <!-- *** Connection with API and parser, Find matches***-->
 <script>
     $("#inter").on('click', function () {
-        var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+        
+		var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
         var date = $('#date').val();
         var league = $('#fto').val();
-        var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&league_id=' + league + '&match_live=1';
+		var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&league_id=' + league + '&match_live=1';
+		if(date == null || date == ""){
+		alert("Date field is required")
+		}
+		else{
         $.ajax({
             url: urlAPI,
             type: 'POST',
@@ -517,6 +522,7 @@
                 $('#result').html(html);
             }
         });
+		}
     });
 </script>
 

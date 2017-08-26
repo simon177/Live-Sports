@@ -21,5 +21,7 @@
 	<plugin name="cordova-plugin-splashscreen" />
 	<platform name="android">
               <splash src="splash.png"/>
+			  <icon src="res/icon.png" />
      </platform>
+	
 </widget>
