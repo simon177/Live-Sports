@@ -822,13 +822,15 @@
         var month = dateD.substring(5,7);
         var day = dateD.substring(8,10);
         var hour = timeD.substring(0,2);
-		console.lo
+		var finalHour = +hour + 2;
+		console.log(finalHour);
         var minutes = timeD.substring(3,5);
 		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
 		calOptions.firstReminderMinutes = 5;
 		calOptions.secondReminderMinutes = 1;
-		var startDate = new Date(year, month-1, day, hour+2, minutes); // beware: month 0 = january, 11 = december
-        var endDate = new Date(year, month-1, day, hour+2, minutes);
+		
+		var startDate = new Date(year, month-1, day, finalHour, minutes); // beware: month 0 = january, 11 = december
+        var endDate = new Date(year, month-1, day, finalHour, minutes);
         var title = home + ' - ' + away;
         var eventLocation = home + " Stadium";
         var notes = "Match ended, you can now check the final score in app";
