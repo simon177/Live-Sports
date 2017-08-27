@@ -549,7 +549,8 @@
                 html += '<label>' + formatedData[0].match_date + ' ' + formatedData[0].match_time + '</label>';
                 if (formatedData[0].match_status == "") {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
-					html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind Me!</button>';
+					html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</button>';
+					html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</button>';
 					html += '<button data-matchdate='+formatedData[0].match_date + ' data-matchId='+formatedData[0].match_id+' id="followMatch" class="matchFollow">Follow Match</button>';
                 }
                 else if (formatedData[0].match_status == 'FT') {
@@ -795,13 +796,41 @@
         var hour = timeD.substring(0,2);
         var minutes = timeD.substring(3,5);
 		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-		calOptions.firstReminderMinutes = 5;
-		calOptions.secondReminderMinutes = 30;
+		calOptions.firstReminderMinutes = 30;
+		calOptions.secondReminderMinutes = 5;
 		var startDate = new Date(year, month-1, day, hour, minutes); // beware: month 0 = january, 11 = december
         var endDate = new Date(year, month-1, day, hour, minutes);
         var title = home + ' - ' + away;
         var eventLocation = home + " Stadium";
         var notes = "Don't forget";
+        var success = function (message) {
+            alert("Success: Reminder set correctly");
+        };
+        var error = function (message) {
+            alert("Error: something went wrong");
+        };
+		window.plugins.calendar.createEventWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
+		});
+</script>
+<script>
+    $('body').on('click', '#reminder2', function () {
+        var home = $(this).attr('data-home').replace(/_/g," ");
+        var away= $(this).attr('data-away').replace(/_/g," ");
+        var dateD = $(this).attr('data-date');
+        var timeD = $(this).attr('data-time');
+        var year = dateD.substring(0,4);
+        var month = dateD.substring(5,7);
+        var day = dateD.substring(8,10);
+        var hour = timeD.substring(0,2);
+        var minutes = timeD.substring(3,5);
+		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
+		calOptions.firstReminderMinutes = 5;
+		calOptions.secondReminderMinutes = 0;
+		var startDate = new Date(year, month-1, day, hour+2, minutes); // beware: month 0 = january, 11 = december
+        var endDate = new Date(year, month-1, day, hour+2, minutes);
+        var title = home + ' - ' + away;
+        var eventLocation = home + " Stadium";
+        var notes = "Match ended, you can now check the final score in app";
         var success = function (message) {
             alert("Success: Reminder set correctly");
         };
