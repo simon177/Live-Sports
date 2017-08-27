@@ -564,9 +564,50 @@
                 html += '</div>';
                 html += '<a href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a>';
                 html += '<a href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a>';
-                $.each(formatedData[0].goalscorer, function (key, value) {
+				if (formatedData[0].match_status != "" && formatedData[0].cards != null){
+				html += '<label>Goals</label>';
+				}
+				var scoreCheck = 00;
+				$.each(formatedData[0].goalscorer, function (key, value) {
                     html += '<div class="goalscorers">';
-                    html += '<label>' + value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
+					var score = value.score;
+					var scoreFormated = score.replace(/\s/g,'');
+					var home = scoreFormated.substring(0,1);
+					var away = scoreFormated.substring(2,3);
+					var scorer = value.home_scorer;
+					var scorer2 = value.away_scorer;
+					var formatedScorer = scorer.substring(4);
+					var formatedScorer2 = scorer2.substring(4);
+					console.log(home+away);
+					//if(home == 0 && away ==0){
+					//scoreCheck = home+away
+                    //html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + ' Missed Penalty!</label>';
+					//}
+					//else {
+					if(home+away != scoreCheck){ 
+					html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + '</label>';
+					scoreCheck = home+away;
+					}
+					else{
+					html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + ' Missed Penalty!</label>';
+					scoreCheck = home+away;
+					}
+					//}
+                    html += '</div>';
+                });
+				console.log(formatedData[0].cards);
+				if (formatedData[0].match_status != "" && formatedData[0].cards != null){
+				html += '<label>Cards</label>';
+				}
+				$.each(formatedData[0].cards, function (key, value) {
+                    html += '<div class="cards">';
+                    if(value.time != ""){
+					var faul = value.home_fault;
+					var faul2 = value.away_fault;
+					var formatedFaul = faul.substring(4);
+					var formatedFaul2 = faul2.substring(4);
+					html += '<label>' + value.time + ' ' + value.card + ' ' + formatedFaul + '' + formatedFaul2 + '</label>';
+					}
                     html += '</div>';
                 });
                 //}
