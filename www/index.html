@@ -1,465 +1,346 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Live Sports Hybrid App for ">
-<meta name="author" content="Lukasz Dolezalek, Szymon Banowski">
-<title>Live Sports APP - On time notification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Live Sports Hybrid App for ">
+    <meta name="author" content="Lukasz Dolezalek, Szymon Banowski">
+    <title>Live Sports APP - On time notification</title>
 
-<!--<link rel="stylesheet" href="themes/Bootstrap.css">-->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"/>
+    <!--<link rel="stylesheet" href="themes/Bootstrap.css">-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"/>
 
-<!-- *** First load JQ than JS than JQ Mobile ***-->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <!-- *** First load JQ than JS than JQ Mobile ***-->
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script src="cordova.js"></script>
-
-<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css"/>
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css"/>
-<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 </head>
 <body>
-<!-- *** Main Page *** -->
-<div id="main" data-role="page" data-theme="a"  onload="checkConnection">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
+    <!-- *** Main Page *** -->
+    <div id="main" data-role="page" data-theme="b" onload="checkConnection">
+        <div data-role="header" data-position="inline">
+            <h1>Live Sports APP</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="sms.html" data-rel="contact" data-icon="comment">SMS</a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="b">
+            <h2 style="text-align: center;">YOUR FAVORITE SOURCE OF SPORT EVENTS</h2>
+            <h4 style="text-align: center;">Be Always Notify On Time</h4>
+            <p><a href="#find_match" data-role="button" >Find Match</a>
+            <p><a href="#matches_live" data-role="button" id="liveButton">Live</a>
+            <p><a href="#follows" data-role="button" id="goToFollow">Follows</a>
+            <p><a href="#find_standings" data-role="button">Standings</a>
         </div>
     </div>
-    <div data-role="content" data-theme="a">
-        <h2 style="text-align: center;">YOUR FAVORITE SOURCE OF SPORT EVENTS</h2>
-        <h4 style="text-align: center;">Be Always Notify On Time</h4>
-        <p><a href="#find_match" data-role="button" data-icon="search">Find Match</a>
-        <p><a href="#matches_live" data-role="button" data-icon="grid" id = "liveButton">Live</a>
-        <p><a href="#follows" data-role="button" data-icon="star" id="goToFollow">Follows</a>
-        <p><a href="#find_standings" data-role="button" data-icon="gear">Standings</a>
-    </div>
-</div>
 
-<!-- *** About Page *** -->
-<div id="about_popup" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
+    <!-- *** About Page *** -->
+    <div id="about_popup" data-role="page" data-theme="b">
+        <div data-role="header" data-position="inline">
+            <h1>Live Sports APP</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="b" style="position: absolute; width: 100%; text-align: center; padding: 0px;">
+            <h2>About Application</h2>
+            <div class="row">
+
+                <p>Track live relation from sport events. Compare results of yours favourites team's and players. Check out
+                    courses and type!</p>
+                <p class="text-faded">Find out the event which you would like to track. Enable getting notifications while
+                    gol or penalty kick. Check the odds and get focus on analyzing results of your team or player. Also you
+                    can track top live sport relations in real time ! </p>
+                <p class="text-faded">Your mobility is our responsibility! Whenever if you sitting at home with laptop or
+                    when you go jogging, our APP will be still with you.</p>
+                <p class="text-bold">Hybrid App Technologies! Standard Web Application and Cross-Platform Mobile App.</p>
+
+
+                <h2 class="section-heading">Stay in touch with Us!</h2>
+                <hr class="primary">
+                <p>Would you like to get Web App or Hybrid App project from our team? That's great! Give us a call or send
+                    us an email and we will get back to you as soon as possible!</p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-2 text-center">
+                <i class="fa fa-phone fa-3x sr-contact"></i>
+                <p>+48 123-456-678</p>
+                <p>+48 123-456-678</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                <p><a href="mailto:l_dolezalek@wp.pl">Lukasz Dolezalek</a></p>
+                <p><a href="mailto:szymon.banowski@gmail.com">Szymon Banowski</a></p>
+            </div>
         </div>
     </div>
-    <div data-role="content" data-theme="a">
-        <h2>About Application</h2>
-        <div class="row">
 
-            <p>Track live relation from sport events. Compare results of yours favourites team's and players. Check out
-                courses and type!</p>
-            <p class="text-faded">Find out the event which you would like to track. Enable getting notifications while
-                gol or penalty kick. Check the odds and get focus on analyzing results of your team or player. Also you
-                can track top live sport relations in real time ! </p>
-            <p class="text-faded">Your mobility is our responsibility! Whenever if you sitting at home with laptop or
-                when you go jogging, our APP will be still with you.</p>
-            <p class="text-bold">Hybrid App Technologies! Standard Web Application and Cross-Platform Mobile App.</p>
-
-
-            <h2 class="section-heading">Stay in touch with Us!</h2>
-            <hr class="primary">
-            <p>Would you like to get Web App or Hybrid App project from our team? That's great! Give us a call or send
-                us an email and we will get back to you as soon as possible!</p>
+    <!-- *** Find Match ***-->
+    <div id="find_match" data-role="page" data-theme="b">
+        <div data-role="header" data-position="inline">
+            <h1>Live Sports APP</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col-lg-4 col-lg-offset-2 text-center">
-            <i class="fa fa-phone fa-3x sr-contact"></i>
-            <p>+48 123-456-678</p>
-            <p>+48 123-456-678</p>
-        </div>
-        <div class="col-lg-4 text-center">
-            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-            <p><a href="mailto:l_dolezalek@wp.pl">Lukasz Dolezalek</a></p>
-            <p><a href="mailto:szymon.banowski@gmail.com">Szymon Banowski</a></p>
-        </div>
-    </div>
-</div>
-
-
-<!-- *** Test page with Calendar propery working - script for calendar mus be loaded on #page where it use to be using  *** -->
-<div id="test" data-role="page" data-theme="b">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div data-role="content" data-theme="a">
-        <a data-role="button" id="checkConnection" data-theme="e" onclick="checkConnection()">Check Network</a>
-        <h3>Online / Offline Section</h3>
-        <p id="online">Example content that is displayed when the device <strong>has</strong> Internet connectivity.</p>
-        <p id="offline">Example content that is displayed when the device <strong>doesn’t have</strong> Internet connectivity.</p>
-
-    </div>
-</div>
-
-<!-- *** Find Match ***-->
-<div id="find_match" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div data-role="content" data-theme="a" style="text-align: center;">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-            $(function () {
-                $.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' });
-                $("#date").datepicker();
-                //$("#format").on("change", function () {
-                //    $("#datepicker").datepicker("option", "dateFormat", $(this).val());
-                //});
-            });
-        </script>
-        <h2 style="text-align: center;">Find Match</h2>
-        <form method="post" action="/action_page_post.php">
-            <label for="">Fill in all fields on the form</label>
-            <label for="fto">League: <select name="fto" id="fto" data-clear-btn="true">
-                <option value="62">England - Premier League</option>
-                <option value="79">Italy - Serie A</option>
-                <option value="109">Spain - Liga BBVA</option>
-                <option value="117">Germany - Bundesliga</option>
-                <option value="127">France - Ligue 1</option>
-                <option value="137">Netherlands - Eredivisie</option>
-                <option value="144">Belgium - Pro Lig</option>
-                <option value="150">Portugal - Primeira Liga</option>
-                <option value="176">Scotland - Premiership</option>
-                <option value="274">Austria - Bundesliga</option>
-                <option value="280">Cyprus - 1st League</option>
-                <option value="284">Denmark - Superliga</option>
-                <option value="293">Finland - Veikkausliiga</option>
-                <option value="306">Greece - Super League</option>
-                <option value="325">Iceland - Urvalsdeild</option>
-                <option value="329">Ireland - Airtricity League</option>
-                <option value="334">Luxemburg - National Division</option>
-                <option value="337">Norway - Tippeligaen</option>
-                <option value="345">North. Ireland - Premiership</option>
-                <option value="350">Sweden - Allsvenskan</option>
-                <option value="368">Switzerland - Super League</option>
-                <option value="376">Turkey - Super Lig</option>
-                <option value="395">Wales - Premier League</option>
-                <option value="400">Belarus - Premier</option>
-                <option value="403">Bosnia & Herz. - Premijer Liga</option>
-                <option value="407">Bulgaria - A PFG</option>
-                <option value="411">Croatia - 1st League</option>
-                <option value="415">Czech Rep. - Synot League</option>
-                <option value="419">Estonia - Premium Liiga</option>
-                <option value="424">Hungary - OTP BANK Liga</option>
-                <option value="441">Latvia - Virsliga</option>
-                <option value="444">Lithuania - A Lyga</option>
-                <option value="447">Moldova - National Division</option>
-                <option value="450">Montenegro - Telekom 1</option>
-                <option value="453">Poland - Ekstraklasa</option>
-                <option value="459">Romania - Liga 1</option>
-                <option value="469">Russia - Premier League</option>
-                <option value="478">Serbia - Super Liga</option>
-                <option value="481">Slovakia - Fortuna League</option>
-                <option value="486">Slovenia - 1st SNL</option>
-                <option value="490">Ukraine - Premier League</option>
-            </select>
-            </label>
-            <label for="date">Date: <input type="text" name="date" id="date" size="30">
-            </label>
-        </form>
-        <a href="#find_match_results" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live
-            Match</a>
-    </div>
-	</div>
-	<div id="find_standings" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
+        <div data-role="content" data-theme="b" style="text-align: center;">
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+                $(function () {
+                    $.datepicker.setDefaults({dateFormat: 'yy-mm-dd'});
+                    $("#date").datepicker();
+                    //$("#format").on("change", function () {
+                    //    $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+                    //});
+                });
+            </script>
+            <h2 style="text-align: center;">Find Match</h2>
+            <form method="post" action="/action_page_post.php">
+                <label for="">Fill in all fields on the form</label>
+                <label for="fto">League: <select name="fto" id="fto" data-clear-btn="true">
+                    <option value="62">England - Premier League</option>
+                    <option value="79">Italy - Serie A</option>
+                    <option value="109">Spain - Liga BBVA</option>
+                    <option value="117">Germany - Bundesliga</option>
+                    <option value="127">France - Ligue 1</option>
+                    <option value="137">Netherlands - Eredivisie</option>
+                    <option value="144">Belgium - Pro Lig</option>
+                    <option value="150">Portugal - Primeira Liga</option>
+                    <option value="176">Scotland - Premiership</option>
+                    <option value="274">Austria - Bundesliga</option>
+                    <option value="280">Cyprus - 1st League</option>
+                    <option value="284">Denmark - Superliga</option>
+                    <option value="293">Finland - Veikkausliiga</option>
+                    <option value="306">Greece - Super League</option>
+                    <option value="325">Iceland - Urvalsdeild</option>
+                    <option value="329">Ireland - Airtricity League</option>
+                    <option value="334">Luxemburg - National Division</option>
+                    <option value="337">Norway - Tippeligaen</option>
+                    <option value="345">North. Ireland - Premiership</option>
+                    <option value="350">Sweden - Allsvenskan</option>
+                    <option value="368">Switzerland - Super League</option>
+                    <option value="376">Turkey - Super Lig</option>
+                    <option value="395">Wales - Premier League</option>
+                    <option value="400">Belarus - Premier</option>
+                    <option value="403">Bosnia & Herz. - Premijer Liga</option>
+                    <option value="407">Bulgaria - A PFG</option>
+                    <option value="411">Croatia - 1st League</option>
+                    <option value="415">Czech Rep. - Synot League</option>
+                    <option value="419">Estonia - Premium Liiga</option>
+                    <option value="424">Hungary - OTP BANK Liga</option>
+                    <option value="441">Latvia - Virsliga</option>
+                    <option value="444">Lithuania - A Lyga</option>
+                    <option value="447">Moldova - National Division</option>
+                    <option value="450">Montenegro - Telekom 1</option>
+                    <option value="453">Poland - Ekstraklasa</option>
+                    <option value="459">Romania - Liga 1</option>
+                    <option value="469">Russia - Premier League</option>
+                    <option value="478">Serbia - Super Liga</option>
+                    <option value="481">Slovakia - Fortuna League</option>
+                    <option value="486">Slovenia - 1st SNL</option>
+                    <option value="490">Ukraine - Premier League</option>
+                </select>
+                </label>
+                <label for="date">Date: <input type="text" name="date" id="date" size="30">
+                </label>
+            </form>
+            <a href="#find_match_results" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live
+                Match</a>
         </div>
     </div>
-    <div data-role="content" data-theme="a" style="text-align: center;">
-        <h2 style="text-align: center;">Find Match</h2>
-        <form method="post" action="/action_page_post.php">
-            <label for="">Fill in all fields on the form</label>
-            <label for="fleague">League: <select name="fleague" id="fleague" data-clear-btn="true">
-                <option value="62">England - Premier League</option>
-                <option value="79">Italy - Serie A</option>
-                <option value="109">Spain - Liga BBVA</option>
-                <option value="117">Germany - Bundesliga</option>
-                <option value="127">France - Ligue 1</option>
-                <option value="137">Netherlands - Eredivisie</option>
-                <option value="144">Belgium - Pro Lig</option>
-                <option value="150">Portugal - Primeira Liga</option>
-                <option value="176">Scotland - Premiership</option>
-                <option value="274">Austria - Bundesliga</option>
-                <option value="280">Cyprus - 1st League</option>
-                <option value="284">Denmark - Superliga</option>
-                <option value="293">Finland - Veikkausliiga</option>
-                <option value="306">Greece - Super League</option>
-                <option value="325">Iceland - Urvalsdeild</option>
-                <option value="329">Ireland - Airtricity League</option>
-                <option value="334">Luxemburg - National Division</option>
-                <option value="337">Norway - Tippeligaen</option>
-                <option value="345">North. Ireland - Premiership</option>
-                <option value="350">Sweden - Allsvenskan</option>
-                <option value="368">Switzerland - Super League</option>
-                <option value="376">Turkey - Super Lig</option>
-                <option value="395">Wales - Premier League</option>
-                <option value="400">Belarus - Premier</option>
-                <option value="403">Bosnia & Herz. - Premijer Liga</option>
-                <option value="407">Bulgaria - A PFG</option>
-                <option value="411">Croatia - 1st League</option>
-                <option value="415">Czech Rep. - Synot League</option>
-                <option value="419">Estonia - Premium Liiga</option>
-                <option value="424">Hungary - OTP BANK Liga</option>
-                <option value="441">Latvia - Virsliga</option>
-                <option value="444">Lithuania - A Lyga</option>
-                <option value="447">Moldova - National Division</option>
-                <option value="450">Montenegro - Telekom 1</option>
-                <option value="453">Poland - Ekstraklasa</option>
-                <option value="459">Romania - Liga 1</option>
-                <option value="469">Russia - Premier League</option>
-                <option value="478">Serbia - Super Liga</option>
-                <option value="481">Slovakia - Fortuna League</option>
-                <option value="486">Slovenia - 1st SNL</option>
-                <option value="490">Ukraine - Premier League</option>
-            </select>
-        </form>
-        <a href="#find_standings2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="findStan">Search</a>
+
+    <!-- *** Standings Main Page *** -->
+    <div id="find_standings" data-role="page" data-theme="b">
+        <div data-role="header" data-position="inline">
+            <h1>Live Sports APP</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="b" style="text-align: center;">
+            <h2 style="text-align: center;">Find Match</h2>
+            <form method="post" action="/action_page_post.php">
+                <label for="">Fill in all fields on the form</label>
+                <label for="fleague">League: <select name="fleague" id="fleague" data-clear-btn="true">
+                    <option value="62">England - Premier League</option>
+                    <option value="79">Italy - Serie A</option>
+                    <option value="109">Spain - Liga BBVA</option>
+                    <option value="117">Germany - Bundesliga</option>
+                    <option value="127">France - Ligue 1</option>
+                    <option value="137">Netherlands - Eredivisie</option>
+                    <option value="144">Belgium - Pro Lig</option>
+                    <option value="150">Portugal - Primeira Liga</option>
+                    <option value="176">Scotland - Premiership</option>
+                    <option value="274">Austria - Bundesliga</option>
+                    <option value="280">Cyprus - 1st League</option>
+                    <option value="284">Denmark - Superliga</option>
+                    <option value="293">Finland - Veikkausliiga</option>
+                    <option value="306">Greece - Super League</option>
+                    <option value="325">Iceland - Urvalsdeild</option>
+                    <option value="329">Ireland - Airtricity League</option>
+                    <option value="334">Luxemburg - National Division</option>
+                    <option value="337">Norway - Tippeligaen</option>
+                    <option value="345">North. Ireland - Premiership</option>
+                    <option value="350">Sweden - Allsvenskan</option>
+                    <option value="368">Switzerland - Super League</option>
+                    <option value="376">Turkey - Super Lig</option>
+                    <option value="395">Wales - Premier League</option>
+                    <option value="400">Belarus - Premier</option>
+                    <option value="403">Bosnia & Herz. - Premijer Liga</option>
+                    <option value="407">Bulgaria - A PFG</option>
+                    <option value="411">Croatia - 1st League</option>
+                    <option value="415">Czech Rep. - Synot League</option>
+                    <option value="419">Estonia - Premium Liiga</option>
+                    <option value="424">Hungary - OTP BANK Liga</option>
+                    <option value="441">Latvia - Virsliga</option>
+                    <option value="444">Lithuania - A Lyga</option>
+                    <option value="447">Moldova - National Division</option>
+                    <option value="450">Montenegro - Telekom 1</option>
+                    <option value="453">Poland - Ekstraklasa</option>
+                    <option value="459">Romania - Liga 1</option>
+                    <option value="469">Russia - Premier League</option>
+                    <option value="478">Serbia - Super Liga</option>
+                    <option value="481">Slovakia - Fortuna League</option>
+                    <option value="486">Slovenia - 1st SNL</option>
+                    <option value="490">Ukraine - Premier League</option>
+                </select>
+            </form>
+            <a href="#find_standings2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="findStan">Search</a>
+        </div>
+    </div>
+
+    <!-- *** Live Match Page *** -->
+    <div id="matches_live" data-role="page" data-theme="b">
+        <div data-role="header">
+            <a href="index.html" data-icon="back" style="position: sticky;">Back to MainPage</a>
+        </div>
+        <div data-role="content" data-theme="b" id="LiveResult">
+        </div>
+    </div>
+
+    <!-- *** Standings Main Page *** -->
+    <div id="find_standings2" data-role="page" data-theme="b">
+        <div data-role="header">
+            <a href="index.html" data-icon="back" style="position: sticky;">Back to MainPage</a>
+        </div>
+        <div data-role="content" data-theme="b" id="standingsMenuResult">
+        </div>
+    </div>
+
+    <!-- *** Match Page *** -->
+    <div id="find_match_results" data-role="page" data-theme="b">
+        <div data-role="header">
+            <a href="#find_match" data-icon="back" style="position: sticky;">Back to Search Matches</a>
+        </div>
+        <div data-role="content" data-theme="b" id="result">
+        </div>
     </div>
 
 
-
-    <!--<p class="event received" onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Device is
-        Ready</p>
-    <p>
-    <p>Date Feature for test
-        <input type="text" id="date-input" data-inline="false" data-role="date">
-    <p>
-    <p>Test Date:<input type="text" data-role="date">
-    <div><label for="input-date">Input date</label> <input id="input-date" type="date" value="2014-10-31"> <span
-            class="result"></span></div>-->
-</div>
-
-
-<!-- *** Find Match Results ***-->
-<div id="matches_live" data-role="page" data-theme="a">
-    <div data-role="header">
-        <a href="index.html" data-icon="back" style="position: inherit;">Back to MainPage</a>
-    </div>
-    <div data-role="content" data-theme="a" id="LiveResult">
-    </div>
-</div>
-
-<div id="find_standings2" data-role="page" data-theme="a">
-    <div data-role="header">
-        <a href="index.html" data-icon="back" style="position: inherit;">Back to MainPage</a>
-    </div>
-    <div data-role="content" data-theme="a" id="standingsMenuResult">
-    </div>
-</div>
-
-<div id="find_match_results" data-role="page" data-theme="a">
-    <div data-role="header">
-        <a href="#find_match" data-icon="back" style="position: inherit;">Back to Search Matches</a>
-    </div>
-    <div data-role="content" data-theme="a" id="result">
-    </div>
-</div>
-
-
-<!-- *** Match Page ***-->
-<div id="matchpage" data-role="page" data-theme="a">
-    <div data-role="header">
-        <a href="#find_match_results" data-icon="back" style="position: inherit;">Back to Search Matches</a>
-
-    </div>
+    <!-- *** Match Page *** -->
+    <div id="matchpage" data-role="page" data-theme="b">
+        <div data-role="header">
+            <a href="#find_match_results" data-icon="back" style="position: sticky;">Back to Search Matches</a>
+        </div>
         <div data-role="main" class="ui-content result__item__label" id="matchDetails">
-</div>
-</div>
-
-<!-- *** Live ***-->
-<div id="live" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
         </div>
     </div>
-    <div data-role="content" data-theme="a">
-        <h2 style="text-align: center;">Live</h2>
 
-    </div>
-</div>
-
-<!-- *** Follows ***-->
-<div id="follows" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
+    <!-- *** Live *** -->
+    <div id="live" data-role="page" data-theme="b">
+        <div data-role="header" data-position="inline">
+            <h1>Live Sports APP</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="b">
+            <h2 style="text-align: center;">Live</h2>
         </div>
     </div>
-    <div data-role="content" data-theme="a" id ="followResult">
-        <h2 style="text-align: center;">Follows</h2>
-	</div>
-</div>
 
-<!-- *** Standings ***-->
-<!--<div id="standingsPage" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Live Sports APP</h1>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
-                </li>
-                <li>
-                    <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
-                </li>
-                <li>
-                    <a href="#test" data-rel="test">Check Network</a>
-                </li>
-                <li>
-                    <a href="sms.html" data-rel="contact" data-icon="gear">SMS</a>
-                </li>
-            </ul>
+    <!-- *** Follows *** -->
+    <div id="follows" data-role="page" data-theme="b">
+        <div data-role="header" data-position="inline">
+            <h1>Live Sports APP</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html" data-icon="home" class="ui-btn-active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="b" id="followResult">
+            <h2 style="text-align: center;">Follows</h2>
         </div>
     </div>
-    <div role="main" data-dialog="true" data-theme="b" class="ui-content">
-        <h2 style="text-align: center;">Standings</h2>
-        <table cellspacing="0" width="100%">
-            <tr>
-                <th>Overall League Position</th>
-                <th>Team Name</th>
-                <th>Overall League Played</th>
-                <th>Wins</th>
-                <th>Draws</th>
-                <th>Losses</th>
-                <th>Overall GF+</th>
-                <th>Overall GA+</th>
-                <th>Overall Points</th>
-            </tr>
-        </table>
-        <table cellspacing="0" width="100%" id="standingsResult">
-        </table>
+
+    <!-- *** Standings Page *** -->
+    <div data-role="page" id="standingsPage"  data-dialog="true">
+        <div data-role="header">
+            <h1>Standings</h1>
+        </div>
+        <div role="main" class="ui-content" id="standingsResult">
+        </div>
     </div>
 
-
-</div>-->
-<div data-role="page" id="standingsPage" data-dialog="true">
-			<div data-role="header" data-theme="a">
-				<h1>Standings</h1>
-			</div>
-			<div role="main" class="ui-content" id="standingsResult">
-			</div>
-			</div>
-
-<div data-role="page" id="oddsPage" data-dialog="true">
-			<div data-role="header" data-theme="a">
-				<h1>Odds</h1>
-			</div>
-			<div role="main" class="ui-content" id="oddsResult">
-			</div>
-			</div>
-			
-			
+    <!-- *** Odds Page *** -->
+    <div data-role="page" id="oddsPage"  data-dialog="true">
+        <div data-role="header">
+            <h1>Odds</h1>
+        </div>
+        <div role="main" class="ui-content" id="oddsResult">
+        </div>
+    </div>
 
 
 </body>
@@ -467,65 +348,67 @@
 <!--http://wizard.uek.krakow.pl/~s179683/Web/order2/www/-->
 <!--http://wizard.uek.krakow.pl/~s180008/Web/order2/www/-->
 <script src="cordova.js"></script>
-<!-- *** Connection with API and parser, Find matches***-->
+
+<!-- *** Connection with API and parser, find matches ***-->
 <script>
     $("#inter").on('click', function () {
-        
-		var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+
+        var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
         var date = $('#date').val();
         var league = $('#fto').val();
-		var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&league_id=' + league + '&match_live=1';
-		if(date == null || date == ""){
-		alert("Date field is required")
-		}
-		else{
-        $.ajax({
-            url: urlAPI,
-            type: 'POST',
-            data: {
-                'link': link,
-            },
-            //zamiana odpowiedzi json na string
-            success: function (result) {
-                var returnedData = JSON.parse(result);
-                var formatedData = JSON.parse(returnedData);
-                var html = '';
-                if (formatedData.error == 404) {
-                    html = 'This league is not playing on that day';
+        var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&league_id=' + league + '&match_live=1';
+        if (date == null || date == "") {
+            alert("Date field is required")
+        }
+        else {
+            $.ajax({
+                url: urlAPI,
+                type: 'POST',
+                data: {
+                    'link': link,
+                },
+                //zamiana odpowiedzi json na string
+                success: function (result) {
+                    var returnedData = JSON.parse(result);
+                    var formatedData = JSON.parse(returnedData);
+                    var html = '';
+                    if (formatedData.error == 404) {
+                        html = 'This league is not playing on that day';
+                        $('#result').html(html);
+                    }
+                    else {
+                        $.each(formatedData, function (key, value) {
+                            if (value.match_status == '') {
+                                html += '<a href="#matchpage">';
+                                html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
+                                html += '<label>' + value.match_time + ' ' + value.match_hometeam_name + ' - ' + value.match_awayteam_name + '</label>';
+                                html += '</div>';
+                                html += '</a>';
+                            }
+                            if (value.match_status == 'FT') {
+                                html += '<a href="#matchpage">';
+                                html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
+                                html += '<label>Full Time ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + '</label>';
+                                html += '</div>';
+                                html += '</a>';
+                            }
+                            if (value.match_status != 'FT' && value.match_status != 'Canc.' && value.match_status != '' && value.match_status != 'Postp.') {
+                                html += '<a href="#matchpage">';
+                                html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
+                                html += '<label>' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label>';
+                                html += '</div>';
+                                html += '</a>';
+                            }
+                        });
+                    }
                     $('#result').html(html);
                 }
-                else {
-                    $.each(formatedData, function (key, value) {
-                        if (value.match_status == '') {
-                            html += '<a href="#matchpage">';
-                            html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
-                            html += '<label>' + value.match_time + ' ' + value.match_hometeam_name + ' - ' + value.match_awayteam_name + '</label>';
-                            html += '</div>';
-                            html += '</a>';
-                        }
-                        if (value.match_status == 'FT') {
-                            html += '<a href="#matchpage">';
-                            html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
-                            html += '<label>Full Time ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + '</label>';
-                            html += '</div>';
-                            html += '</a>';
-                        }
-                        if (value.match_status != 'FT' && value.match_status != 'Canc.' && value.match_status != '' && value.match_status != 'Postp.') {
-                            html += '<a href="#matchpage">';
-                            html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
-                            html += '<label>' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label>';
-                            html += '</div>';
-                            html += '</a>';
-                        }
-                    });
-                }
-                $('#result').html(html);
-            }
-        });
-		}
+            });
+        }
     });
 </script>
 
+<!--*** Result items *** -->
 <script>
     $('body').on('click', '.result__item', function () {
         var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
@@ -549,65 +432,66 @@
                 html += '<label>' + formatedData[0].match_date + ' ' + formatedData[0].match_time + '</label>';
                 if (formatedData[0].match_status == "") {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
-					html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</button>';
-					html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</button>';
-					html += '<button data-matchdate='+formatedData[0].match_date + ' data-matchId='+formatedData[0].match_id+' id="followMatch" class="matchFollow">Follow Match</button>';
+                    html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</button>';
+                    html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</button>';
+                    html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button>';
+                    html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="sendSMSreminder" class="sendSMSreminder"><a href="sms.html" data-rel="contact" data-icon="comment">SMS</a></button>';
                 }
                 else if (formatedData[0].match_status == 'FT') {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
                 }
                 else {
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
-					html += '<button data-matchdate='+formatedData[0].match_date + ' data-matchId='+formatedData[0].match_id+' id="followMatch" class="matchFollow">Follow Match</button>';
+                    html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button>';
 
-				}
+                }
                 html += '</div>';
                 html += '<a href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a>';
                 html += '<a href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a>';
-				if (formatedData[0].match_status != "" && formatedData[0].cards != null){
-				html += '<label>Goals</label>';
-				}
-				var scoreCheck = 00;
-				$.each(formatedData[0].goalscorer, function (key, value) {
+                if (formatedData[0].match_status != "" && formatedData[0].cards != null) {
+                    html += '<label>Goals</label>';
+                }
+                var scoreCheck = 00;
+                $.each(formatedData[0].goalscorer, function (key, value) {
                     html += '<div class="goalscorers">';
-					var score = value.score;
-					var scoreFormated = score.replace(/\s/g,'');
-					var home = scoreFormated.substring(0,1);
-					var away = scoreFormated.substring(2,3);
-					var scorer = value.home_scorer;
-					var scorer2 = value.away_scorer;
-					var formatedScorer = scorer.substring(4);
-					var formatedScorer2 = scorer2.substring(4);
-					console.log(home+away);
-					//if(home == 0 && away ==0){
-					//scoreCheck = home+away
+                    var score = value.score;
+                    var scoreFormated = score.replace(/\s/g, '');
+                    var home = scoreFormated.substring(0, 1);
+                    var away = scoreFormated.substring(2, 3);
+                    var scorer = value.home_scorer;
+                    var scorer2 = value.away_scorer;
+                    var formatedScorer = scorer.substring(4);
+                    var formatedScorer2 = scorer2.substring(4);
+                    console.log(home + away);
+                    //if(home == 0 && away ==0){
+                    //scoreCheck = home+away
                     //html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + ' Missed Penalty!</label>';
-					//}
-					//else {
-					if(home+away != scoreCheck){ 
-					html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + '</label>';
-					scoreCheck = home+away;
-					}
-					else{
-					html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + ' Missed Penalty!</label>';
-					scoreCheck = home+away;
-					}
-					//}
+                    //}
+                    //else {
+                    if (home + away != scoreCheck) {
+                        html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + '</label>';
+                        scoreCheck = home + away;
+                    }
+                    else {
+                        html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + ' Missed Penalty!</label>';
+                        scoreCheck = home + away;
+                    }
+                    //}
                     html += '</div>';
                 });
-				console.log(formatedData[0].cards);
-				if (formatedData[0].match_status != "" && formatedData[0].cards != null){
-				html += '<label>Cards</label>';
-				}
-				$.each(formatedData[0].cards, function (key, value) {
+                console.log(formatedData[0].cards);
+                if (formatedData[0].match_status != "" && formatedData[0].cards != null) {
+                    html += '<label>Cards</label>';
+                }
+                $.each(formatedData[0].cards, function (key, value) {
                     html += '<div class="cards">';
-                    if(value.time != ""){
-					var faul = value.home_fault;
-					var faul2 = value.away_fault;
-					var formatedFaul = faul.substring(4);
-					var formatedFaul2 = faul2.substring(4);
-					html += '<label>' + value.time + ' ' + value.card + ' ' + formatedFaul + '' + formatedFaul2 + '</label>';
-					}
+                    if (value.time != "") {
+                        var faul = value.home_fault;
+                        var faul2 = value.away_fault;
+                        var formatedFaul = faul.substring(4);
+                        var formatedFaul2 = faul2.substring(4);
+                        html += '<label>' + value.time + ' ' + value.card + ' ' + formatedFaul + '' + formatedFaul2 + '</label>';
+                    }
                     html += '</div>';
                 });
                 //}
@@ -624,6 +508,7 @@
     });
 </script>
 
+<!-- *** Stanings *** -->
 <script>
     $('body').on('click', '.standings', function () {
         var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
@@ -673,13 +558,14 @@
                         html += '</tr>';
                     }
                 });
-				console.log(html);
+                console.log(html);
                 $('#standingsResult').html(html);
             }
         });
     });
 </script>
 
+<!-- *** Bets & Odds *** -->
 <script>
     $('body').on('click', '.bets', function () {
         var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
@@ -712,21 +598,23 @@
         });
     });
 </script>
+
+<!-- *** Live Results Content *** -->
 <script>
     $("#liveButton").on('click', function () {
         var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; //January is 0!
-		var yyyy = today.getFullYear();
-		if(dd<10) {
-		dd = '0'+dd
-		} 
-		if(mm<10) {
-		mm = '0'+mm
-		} 
-		date = yyyy + '-' + mm + '-' + dd;
-		console.log(date);
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        date = yyyy + '-' + mm + '-' + dd;
+        console.log(date);
         var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&match_live=1';
         $.ajax({
             url: urlAPI,
@@ -759,88 +647,94 @@
         });
     });
 </script>
+
+<!-- *** Follow match button action *** -->
 <script>
- $('body').on('click', '.matchFollow', function () {
-	var elemDate = $(this).attr('data-matchdate');
-    var elemID = $(this).attr('data-matchId');
-	var len=localStorage.length;
-	var identifier=0;
-	console.log(identifier);
-	for(var i=0; i<len; i++){
-    var key = localStorage.key(i);
-	console.log(key+' '+elemID)
-	if(elemID == key){
-	identifier=1;
-	console.log(identifier);
-	}
-	}
-	if(identifier == 1){
-	alert("You are already following this match");
-	}
-	else{
-	localStorage.setItem(elemID, elemDate);
-	alert("You are now following this match, to easy check the score, click button following in main menu");
-	}
- }); 
+    $('body').on('click', '.matchFollow', function () {
+        var elemDate = $(this).attr('data-matchdate');
+        var elemID = $(this).attr('data-matchId');
+        var len = localStorage.length;
+        var identifier = 0;
+        console.log(identifier);
+        for (var i = 0; i < len; i++) {
+            var key = localStorage.key(i);
+            console.log(key + ' ' + elemID)
+            if (elemID == key) {
+                identifier = 1;
+                console.log(identifier);
+            }
+        }
+        if (identifier == 1) {
+            alert("You are already following this match");
+        }
+        else {
+            localStorage.setItem(elemID, elemDate);
+            alert("You are now following this match, to easy check the score, click button following in main menu");
+        }
+    });
 </script>
+
+<!-- *** Follows Main Page ***-->
 <script>
     $("#goToFollow").on('click', function () {
-	var len=localStorage.length;
-	for(var i=len-1; i>=0; i--){
-    var key = localStorage.key(i);
-    var value = localStorage[key];
-	var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';    
-    var link = 'https://apifootball.com/api/?action=get_events&from='+value+'&to=' + value + '&match_id=' + key;
-	var html = '';
-        $.ajax({
-            url: urlAPI,
-            type: 'POST',
-            data: {
-                'link': link,
-            },
-            //zamiana odpowiedzi json na string
-            success: function (result) {
-                var returnedData = JSON.parse(result);
-                var formatedData = JSON.parse(returnedData);
-                html += '<div class="'+formatedData[0].match_id+'_resultsfromFollow">';
-                if (formatedData[0].match_status == "") {
-					html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+        var len = localStorage.length;
+        for (var i = len - 1; i >= 0; i--) {
+            var key = localStorage.key(i);
+            var value = localStorage[key];
+            var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+            var link = 'https://apifootball.com/api/?action=get_events&from=' + value + '&to=' + value + '&match_id=' + key;
+            var html = '';
+            $.ajax({
+                url: urlAPI,
+                type: 'POST',
+                data: {
+                    'link': link,
+                },
+                //zamiana odpowiedzi json na string
+                success: function (result) {
+                    var returnedData = JSON.parse(result);
+                    var formatedData = JSON.parse(returnedData);
+                    html += '<div class="' + formatedData[0].match_id + '_resultsfromFollow">';
+                    if (formatedData[0].match_status == "") {
+                        html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+                    }
+                    else if (formatedData[0].match_status == 'FT') {
+                        html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
+                    }
+                    else {
+                        html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
+                    }
+                    html += '<div class="' + formatedData[0].match_id + '_goalscorers_follow">';
+                    $.each(formatedData[0].goalscorer, function (key, value) {
+                        html += '<label>&nbsp' + value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
+                    });
+                    html += '</div>';
+                    html += '<label>-----------</label>';
+                    html += '</div>';
+                    $('#followResult').html(html);
                 }
-                else if (formatedData[0].match_status == 'FT') {
-                    html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
-                }
-                else {
-                    html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
-                }
-					html += '<div class="'+formatedData[0].match_id+'_goalscorers_follow">';
-				$.each(formatedData[0].goalscorer, function (key, value) {
-                    html += '<label>&nbsp'+value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
-                });
-					html += '</div>';
-					html += '<label>-----------</label>';
-					html += '</div>';
-                $('#followResult').html(html);
-            }
-        });
-}
-	});
+            });
+        }
+    });
 </script>
+
+<!-- *** Remind before match *** -->
 <script>
     $('body').on('click', '#reminder', function () {
-        var home = $(this).attr('data-home').replace(/_/g," ");
-        var away= $(this).attr('data-away').replace(/_/g," ");
+        var home = $(this).attr('data-home').replace(/_/g, " ");
+        var away = $(this).attr('data-away').replace(/_/g, " ");
         var dateD = $(this).attr('data-date');
         var timeD = $(this).attr('data-time');
-        var year = dateD.substring(0,4);
-        var month = dateD.substring(5,7);
-        var day = dateD.substring(8,10);
-        var hour = timeD.substring(0,2);
-        var minutes = timeD.substring(3,5);
-		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-		calOptions.firstReminderMinutes = 30;
-		calOptions.secondReminderMinutes = 5;
-		var startDate = new Date(year, month-1, day, hour, minutes); // beware: month 0 = january, 11 = december
-        var endDate = new Date(year, month-1, day, hour, minutes);
+        var year = dateD.substring(0, 4);
+        var month = dateD.substring(5, 7);
+        var day = dateD.substring(8, 10);
+        var hour = timeD.substring(0, 2);
+        var minutes = timeD.substring(3, 5);
+        var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
+        calOptions.firstReminderMinutes = 30;
+        calOptions.secondReminderMinutes = 5;
+        var startDate = new Date(year, month - 1, day, hour, minutes); // beware: month 0 = january, 11 = december
+        var endDate = new Date(year, month - 1, day, hour, minutes);
         var title = home + ' - ' + away;
         var eventLocation = home + " Stadium";
         var notes = "Don't forget";
@@ -850,28 +744,30 @@
         var error = function (message) {
             alert("Error: something went wrong");
         };
-		window.plugins.calendar.createEventWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
-		});
+        window.plugins.calendar.createEventWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
+    });
 </script>
+
+<!-- *** Remind after match *** -->
 <script>
     $('body').on('click', '#reminder2', function () {
-        var home = $(this).attr('data-home').replace(/_/g," ");
-        var away= $(this).attr('data-away').replace(/_/g," ");
+        var home = $(this).attr('data-home').replace(/_/g, " ");
+        var away = $(this).attr('data-away').replace(/_/g, " ");
         var dateD = $(this).attr('data-date');
         var timeD = $(this).attr('data-time');
-        var year = dateD.substring(0,4);
-        var month = dateD.substring(5,7);
-        var day = dateD.substring(8,10);
-        var hour = timeD.substring(0,2);
-		var finalHour = +hour + 2;
-		console.log(finalHour);
-        var minutes = timeD.substring(3,5);
-		var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-		calOptions.firstReminderMinutes = 5;
-		calOptions.secondReminderMinutes = 1;
-		
-		var startDate = new Date(year, month-1, day, finalHour, minutes); // beware: month 0 = january, 11 = december
-        var endDate = new Date(year, month-1, day, finalHour, minutes);
+        var year = dateD.substring(0, 4);
+        var month = dateD.substring(5, 7);
+        var day = dateD.substring(8, 10);
+        var hour = timeD.substring(0, 2);
+        var finalHour = +hour + 2;
+        console.log(finalHour);
+        var minutes = timeD.substring(3, 5);
+        var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
+        calOptions.firstReminderMinutes = 5;
+        calOptions.secondReminderMinutes = 1;
+
+        var startDate = new Date(year, month - 1, day, finalHour, minutes); // beware: month 0 = january, 11 = december
+        var endDate = new Date(year, month - 1, day, finalHour, minutes);
         var title = home + ' - ' + away;
         var eventLocation = home + " Stadium";
         var notes = "Match ended, you can now check the final score in app";
@@ -881,13 +777,15 @@
         var error = function (message) {
             alert("Error: something went wrong");
         };
-		window.plugins.calendar.createEventWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
-		});
+        window.plugins.calendar.createEventWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
+    });
 </script>
+
+<!-- *** Standings Main Page *** -->
 <script>
-     $("#findStan").on('click', function () {
+    $("#findStan").on('click', function () {
         var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
-		var league = $('#fleague').val();
+        var league = $('#fleague').val();
         var link = 'https://apifootball.com/api/?action=get_standings&league_id=' + league;
         $.ajax({
             url: urlAPI,
@@ -904,17 +802,17 @@
                 });
                 var html = '';
                 $.each(formatedData, function (key, value) {
-                        html += '<tr>';
-                        html += '<th>' + value.overall_league_position + '</th>';
-                        html += '<th>' + value.team_name + '</th>';
-                        html += '<th>' + value.overall_league_payed + '</th>';
-                        html += '<th>' + value.overall_league_W + '</th>';
-                        html += '<th>' + value.overall_league_D + '</th>';
-                        html += '<th>' + value.overall_league_L + '</th>';
-                        html += '<th>' + value.overall_league_GF + '</th>';
-                        html += '<th>' + value.overall_league_GA + '</th>';
-                        html += '<th>' + value.overall_league_PTS + '</th>';
-                        html += '</tr>'
+                    html += '<tr>';
+                    html += '<th>' + value.overall_league_position + '</th>';
+                    html += '<th>' + value.team_name + '</th>';
+                    html += '<th>' + value.overall_league_payed + '</th>';
+                    html += '<th>' + value.overall_league_W + '</th>';
+                    html += '<th>' + value.overall_league_D + '</th>';
+                    html += '<th>' + value.overall_league_L + '</th>';
+                    html += '<th>' + value.overall_league_GF + '</th>';
+                    html += '<th>' + value.overall_league_GA + '</th>';
+                    html += '<th>' + value.overall_league_PTS + '</th>';
+                    html += '</tr>'
                 });
                 $('#standingsMenuResult').html(html);
             }
@@ -922,6 +820,7 @@
     });
 </script>
 
+<!-- *** Local Storage test *** -->
 <script>
     $(document).on('pagebeforeshow', '#find_match', function () {
         $(document).on('click', '#inter', function () {
@@ -941,6 +840,7 @@
     });
 </script>
 
+<!-- *** Local Storage test1 *** -->
 <script>
     $(document).on('pagebeforeshow', '#find_match_results', function () {
         $(document).on('click', '#reminder', function () {
@@ -981,19 +881,18 @@
         var networkState = navigator.network.connection.type;
 
         var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.UNKNOWN] = 'Unknown connection';
         states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No network connection';
-        if ((states[networkState]) == states[Connection.NONE])
-        {
-          alert("Please check your internet connectivity and try again for full app functionality");
+        states[Connection.WIFI] = 'WiFi connection';
+        states[Connection.CELL_2G] = 'Cell 2G connection';
+        states[Connection.CELL_3G] = 'Cell 3G connection';
+        states[Connection.CELL_4G] = 'Cell 4G connection';
+        states[Connection.NONE] = 'No network connection';
+        if ((states[networkState]) == states[Connection.NONE]) {
+            alert("Please check your internet connectivity and try again for full app functionality");
         }
         else
-          alert('Internet connectivity detected. Connection type: ' + states[networkState]);
+            alert('Internet connectivity detected. Connection type: ' + states[networkState]);
 
     }
 </script>
