@@ -658,7 +658,6 @@
         console.log(identifier);
         for (var i = 0; i < len; i++) {
             var key = localStorage.key(i);
-            console.log(key + ' ' + elemID)
             if (elemID == key) {
                 identifier = 1;
                 console.log(identifier);
@@ -673,6 +672,14 @@
         }
     });
 </script>
+<script>
+    $('body').on('click', '.matchUnfollow', function () {
+        var elemID = $(this).attr('data-matchId');
+        localStorage.removeItem(elemID);
+		alert("Match is now unfollowed, refresh the page to see the result")
+    });
+</script>
+
 
 <!-- *** Follows Main Page ***-->
 <script>
@@ -709,6 +716,7 @@
                         html += '<label>&nbsp' + value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
                     });
                     html += '</div>';
+					html += '<button data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</button>';
                     html += '<label>-----------</label>';
                     html += '</div>';
                     $('#followResult').html(html);
