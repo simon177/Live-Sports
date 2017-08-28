@@ -676,7 +676,8 @@
     $('body').on('click', '.matchUnfollow', function () {
         var elemID = $(this).attr('data-matchId');
         localStorage.removeItem(elemID);
-		alert("Match is now unfollowed, refresh the page to see the result")
+		window.location = window.location;
+		//alert("Match is now unfollowed, refresh the page to see the result")
     });
 </script>
 
@@ -685,6 +686,7 @@
 <script>
     $("#goToFollow").on('click', function () {
         var len = localStorage.length;
+		if(len > 0){
         for (var i = len - 1; i >= 0; i--) {
             var key = localStorage.key(i);
             var value = localStorage[key];
@@ -723,6 +725,12 @@
                 }
             });
         }
+		}
+		else{
+			html ='';
+			html+='<label>You are not following any match at the moment</label>';
+			$('#followResult').html(html);
+		}
     });
 </script>
 
