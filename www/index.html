@@ -685,15 +685,18 @@
                 console.log(identifier);
             }
         }
-        if (identifier == 1) {
-            alert("You are already following this match");
-        }
-        else {
-            localStorage.setItem('matchId', elemID);
-            localStorage.setItem('matchdate', elemDate);
-            localStorage.setItem(elemID, elemDate);
-            alert("You are now following this match, to easy check the score, click button following in main menu");
-        }
+        localStorage.setItem('sms-matchId', elemID);
+        localStorage.setItem('sms-matchdate', elemDate);
+
+//        if (identifier == 1) {
+  //          alert("You are already following this match");
+    //    }
+      //  else {
+        //    localStorage.setItem('matchId', elemID);
+          //  localStorage.setItem('matchdate', elemDate);
+            //localStorage.setItem(elemID, elemDate);
+            //alert("You are now following this match, to easy check the score, click button following in main menu");
+        //}
     });
 </script>
 
@@ -867,49 +870,6 @@
     });
 </script>
 
-<!-- *** Local Storage test *** -->
-<script>
-    $(document).on('pagebeforeshow', '#find_match', function () {
-        $(document).on('click', '#inter', function () {
-            // store some data
-            if (typeof(Storage) !== "undefined") {
-                firstname = "Lukasz";
-                lastname = "Dolezalek";
-                localStorage.setItem('firstname', firstname);
-                localStorage.setItem('lastname', lastname);
-            }
-            // Change page
-            $.mobile.changePage("#find_match_results");
-        });
-    });
-    $(document).on('pagebeforeshow', '#find_match_results', function () {
-        alert('My name is ' + localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname'));
-    });
-</script>
-
-<!-- *** Local Storage test1 *** -->
-<script>
-    $(document).on('pagebeforeshow', '#find_match_results', function () {
-        $(document).on('click', '#reminder', function () {
-            // store some data
-            if (typeof(Storage) !== "undefined") {
-                mecz = "Legia-Wisla";
-                data = "2017-08-11";
-                godzina = "21:00";
-                localStorage.setItem('firstname', firstname);
-                localStorage.setItem('lastname', lastname);
-                localStorage.setItem('mecz', mecz);
-                localStorage.setItem('data', data);
-                localStorage.setItem('godzina', godzina);
-            }
-            // Change page
-            $.mobile.changePage("sms.html");
-        });
-    });
-    $(document).on('pagebeforeshow', '#matchpage', function () {
-        alert('My name is ' + localStorage.getItem('mecz') + ' ' + localStorage.getItem('data'));
-    });
-</script>
 
 <!-- *** Check Network Connection *** -->
 <script>
