@@ -73,9 +73,7 @@
     $(document).ready(function () {
 
         $(window).load(loadMatchData());
-        
-var messageContent =  $('#messageTxt').val()
-        if (messageContent === '') {
+        if ($('#messageTxt') === '') {
 
             $('body').on('click', '#messageTxt', function () {
                 window.location.reload(true);
