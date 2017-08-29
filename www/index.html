@@ -437,13 +437,12 @@
 				
                 else if (formatedData[0].match_status == 'FT') {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
-					html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchTime='+ formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") +' data-awayScore='+formatedData[0].match_awayteam_score+' data-homeScore='+formatedData[0].match_hometeam_score+' id="shareButtonAfter" class="MshareAfter">Remind a friend!</button>';
-
+					html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchTime='+ formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") +' data-awayScore='+formatedData[0].match_awayteam_score+' data-homeScore='+formatedData[0].match_hometeam_score+' id="shareButtonAfter" class="MshareAfter">Share a result!</button>';
                 }
                 else {
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
                     html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button>';
-
+					html += '<button data-matchStatus=' + formatedData[0].match_status + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") +' data-awayScore='+formatedData[0].match_awayteam_score+' data-homeScore='+formatedData[0].match_hometeam_score+' id="shareButtonLive" class="MshareLive">Sharescore!</button>';
                 }
                 html += '</div>';
                 html += '<a href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a>';
@@ -708,13 +707,7 @@
     $('body').on('click', '.matchUnfollow', function () {
         var elemID = $(this).attr('data-matchId');
         localStorage.removeItem(elemID);
-		window.location.reload(true);
-		//$("#follows").load(location.href+" #follows>*","");
 		alert("Match is now unfollowed, refresh the page to see the result")
-    });
-
-    $('UnfollowMatch').click(function() {
-    	location.reload();
     });
 </script>
 <script>
@@ -747,16 +740,14 @@
 </script>
 <script>
     $('body').on('click', '.MshareLive', function () {
-        var elemDate = $(this).attr('data-matchStatus');
-		var elemDate = $(this).attr('data-matchDate');
-		var elemTime = $(this).attr('data-matchTime');
+        var elemStatus = $(this).attr('data-matchStatus');
 		var elemHome = $(this).attr('data-matchHome');
 		var homeTeam = elemHome.replace(/_/g, " ");
 		var elemAway = $(this).attr('data-matchAway');
 		var awayTeam = elemAway.replace(/_/g, " ");
 		//console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
 		//$("#follows").load(location.href+" #follows>*","");
-		window.plugins.socialsharing.share(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ". Don't miss this match!");
+		window.plugins.socialsharing.share(elemStatus+' min '+homeTeam+' - '+awayTeam + ' Score: '+homeScore+':'+awayScore );
     });
 </script>
 
