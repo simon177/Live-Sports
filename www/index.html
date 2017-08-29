@@ -34,9 +34,6 @@
                     <li>
                         <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                     </li>
-                    <!--<li>
-                        <a href="sms.html" data-rel="contact" data-icon="comment">SMS</a>
-                    </li>-->
                 </ul>
             </div>
         </div>
@@ -672,12 +669,46 @@
         }
     });
 </script>
+
+<!-- *** SMS button action on match details transfer data *** -->
+<script>
+    $('body').on('click', '.sendSMSreminder', function () {
+        var elemDate = $(this).attr('data-matchdate');
+        var elemID = $(this).attr('data-matchId');
+        var len = localStorage.length;
+        var identifier = 0;
+        console.log(identifier);
+        for (var i = 0; i < len; i++) {
+            var key = localStorage.key(i);
+            if (elemID == key) {
+                identifier = 1;
+                console.log(identifier);
+            }
+        }
+        if (identifier == 1) {
+            alert("You are already following this match");
+        }
+        else {
+            localStorage.setItem('matchId', elemID);
+            localStorage.setItem('matchdate', elemDate);
+            localStorage.setItem(elemID, elemDate);
+            alert("You are now following this match, to easy check the score, click button following in main menu");
+        }
+    });
+</script>
+
+<!-- *** Unfollow match *** -->
 <script>
     $('body').on('click', '.matchUnfollow', function () {
         var elemID = $(this).attr('data-matchId');
         localStorage.removeItem(elemID);
-		window.location = window.location;
-		//alert("Match is now unfollowed, refresh the page to see the result")
+		window.location.reload(true);
+		//$("#follows").load(location.href+" #follows>*","");
+		alert("Match is now unfollowed, refresh the page to see the result")
+    });
+
+    $('UnfollowMatch').click(function() {
+    	location.reload();
     });
 </script>
 
