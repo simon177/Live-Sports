@@ -433,6 +433,7 @@
                     html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</button>';
                     html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button>';
                     html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="sendSMSreminder" class="sendSMSreminder"><a href="sms.html" data-rel="contact" data-icon="comment">SMS</a></button>';
+					html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="shareMatch" class="Mshare">Follow Match</button>';
                 }
                 else if (formatedData[0].match_status == 'FT') {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
@@ -713,6 +714,17 @@
     $('UnfollowMatch').click(function() {
     	location.reload();
     });
+</script>
+
+<script>
+    $('body').on('click', '.Mshare', function () {
+        var elemID = $(this).attr('data-matchId');
+        window.plugins.socialsharing.share(elemId);
+    });
+
+    //$('UnfollowMatch').click(function() {
+    //	location.reload();
+   // });
 </script>
 
 
