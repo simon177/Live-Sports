@@ -71,13 +71,50 @@
 </script>
 <script>
     $(document).ready(function() {
-	$(window).load(loadSettings());
-
+        $(window).load(loadMatchData());
     });
 
-    function loadSettings() {
-    $('#numberTxt').val(localStorage.getItem('sms-matchId'));
-    $('#messageTxt').val(localStorage.getItem('sms-matchdate'));
+    function loadMatchData() {
+        var key = localStorage.getItem('sms-matchId');
+        if (key > 0) {
+            var value = localStorage.getItem('sms-matchdate');
+            var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+            var link = 'https://apifootball.com/api/?action=get_events&from=' + value + '&to=' + value + '&match_id=' + key;
+            var html = '';
+            $.ajax({
+                url: urlAPI,
+                type: 'POST',
+                data: {
+                    'link': link,
+                },
+                //zamiana odpowiedzi json na string
+                success: function (result) {
+                    var returnedData = JSON.parse(result);
+                    var formatedData = JSON.parse(returnedData);
+                    $('#messageTxt').val('Hi, upcoming match is very interesting:\n' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name +'\nStart date:\n' + localStorage.getItem('sms-matchdate'));
+
+                    //html += '<div class="' + formatedData[0].match_id + '_resultsfromFollow">';
+
+                    //if (formatedData[0].match_status == "") {
+                    //    html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+                    //}
+
+                    //html += '<div class="' + formatedData[0].match_id + '_goalscorers_follow">';
+                    //$.each(formatedData[0].goalscorer, function (key, value) {
+                    //    html += '<label>&nbsp' + value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
+                    //});
+                    //html += '</div>';
+                    //html += '<button data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</button>';
+                    //html += '<label>-----------</label>';
+                    //html += '</div>';
+                    //$('#smsPage').html(html);
+                }
+            });
+        }
+
+        else {
+            alert('You are not sellect any match at the moment to share with');
+        }
     }
 
 //    function saveSettings() {
@@ -88,5 +125,7 @@
         //localStorage.gender = $('input[type=radio]:checked').val();
     //}
 </script>
+
+
 </body>
 </html>
