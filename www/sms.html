@@ -70,9 +70,19 @@
     };
 </script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+
         $(window).load(loadMatchData());
+        
+var messageContent =  $('#messageTxt').val()
+        if (messageContent === '') {
+
+            $('body').on('click', '#messageTxt', function () {
+                window.location.reload(true);
+            });
+        }
     });
+
     function loadMatchData() {
         var len = localStorage.length;
         if (len > 0) {
