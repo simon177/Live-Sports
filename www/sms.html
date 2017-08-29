@@ -73,10 +73,10 @@
     $(document).ready(function() {
         $(window).load(loadMatchData());
     });
-
     function loadMatchData() {
-        var key = localStorage.getItem('sms-matchId');
-        if (key > 0) {
+        var len = localStorage.length;
+        if (len > 0) {
+            var key = localStorage.getItem('sms-matchId');
             var value = localStorage.getItem('sms-matchdate');
             var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
             var link = 'https://apifootball.com/api/?action=get_events&from=' + value + '&to=' + value + '&match_id=' + key;
@@ -113,19 +113,9 @@
         }
 
         else {
-            alert('You are not sellect any match at the moment to share with');
+            alert('You dont have any match to share with');
         }
     }
-
-//    function saveSettings() {
-//        localStorage.height = $('#height').val();
-    //       localStorage.weight = $('#weight').val();
-       // localStorage.dateOfBirth = $('#dateOfBirth').val();
-        //localStorage.sportive = $("#sportive").val();
-        //localStorage.gender = $('input[type=radio]:checked').val();
-    //}
 </script>
-
-
 </body>
 </html>
