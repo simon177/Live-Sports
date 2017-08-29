@@ -432,8 +432,7 @@
                     html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</button>';
                     html += '<button data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</button>';
                     html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button>';
-                    html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="sendSMSreminder" class="sendSMSreminder"><a href="sms.html" data-rel="contact" data-icon="comment">SMS</a></button>';
-                    html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="shareButton" class="Mshare">Share!</button>';
+                    html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchTime='+ formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") +' id="shareButtonBefore" class="MshareBefore">Remind a friend!</button>';
 			  }
 				
                 else if (formatedData[0].match_status == 'FT') {
@@ -717,11 +716,16 @@
     });
 </script>
 <script>
-    $('body').on('click', '.Mshare', function () {
-        var elemID = $(this).attr('data-matchId');
+    $('body').on('click', '.MshareBefore', function () {
+        var elemDate = $(this).attr('data-matchDate');
+		var elemTime = $(this).attr('data-matchTime');
+		var elemHome = $(this).attr('data-matchHome');
+		var homeTeam = elemHome.replace(/_/g, " ");
+		var elemAway = $(this).attr('data-matchAway');
+		var awayTeam = elemAway.replace(/_/g, " ");
+		//console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
 		//$("#follows").load(location.href+" #follows>*","");
-		window.plugins.socialsharing.share(elemID);
-
+		window.plugins.socialsharing.share(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ". Don't miss this match!");
     });
 </script>
 
