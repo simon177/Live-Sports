@@ -437,6 +437,8 @@
 				
                 else if (formatedData[0].match_status == 'FT') {
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
+					html += '<button data-matchdate=' + formatedData[0].match_date + ' data-matchTime='+ formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") +' data-awayScore='+formatedData[0].match_awayteam_score+' data-homeScore='+formatedData[0].match_hometeam_score+' id="shareButtonAfter" class="MshareAfter">Remind a friend!</button>';
+
                 }
                 else {
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
@@ -728,6 +730,36 @@
 		window.plugins.socialsharing.share(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ". Don't miss this match!");
     });
 </script>
+<script>
+    $('body').on('click', '.MshareAfter', function () {
+        var elemDate = $(this).attr('data-matchDate');
+		var elemTime = $(this).attr('data-matchTime');
+		var elemHome = $(this).attr('data-matchHome');
+		var homeTeam = elemHome.replace(/_/g, " ");
+		var elemAway = $(this).attr('data-matchAway');
+		var awayTeam = elemAway.replace(/_/g, " ");
+		var homeScore = $(this).attr('data-homeScore');
+		var awayScore = $(this).attr('data-awayScore');
+		//console.log(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ' Final Score: '+homeScore+':'+awayScore);
+		//$("#follows").load(location.href+" #follows>*","");
+		window.plugins.socialsharing.share(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ' Final Score: '+homeScore+':'+awayScore);
+    });
+</script>
+<script>
+    $('body').on('click', '.MshareLive', function () {
+        var elemDate = $(this).attr('data-matchStatus');
+		var elemDate = $(this).attr('data-matchDate');
+		var elemTime = $(this).attr('data-matchTime');
+		var elemHome = $(this).attr('data-matchHome');
+		var homeTeam = elemHome.replace(/_/g, " ");
+		var elemAway = $(this).attr('data-matchAway');
+		var awayTeam = elemAway.replace(/_/g, " ");
+		//console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
+		//$("#follows").load(location.href+" #follows>*","");
+		window.plugins.socialsharing.share(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ". Don't miss this match!");
+    });
+</script>
+
 
 
 <!-- *** Follows Main Page ***-->
