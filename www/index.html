@@ -72,7 +72,7 @@
     </div>
     <div data-role="content" data-theme="b" style="position: absolute; width: 100%; text-align: center; padding: 0px;">
         <h2>About Application</h2>
-        <div class="row" style="margin: 10px 10px 10px 10px;">
+        <div class="row" style="margin: 10px 10px 10px 10px; white-space:normal;">
 
             <p>Track live relation from sport events. Compare results of yours favourites team's and players. Check out
                 courses and type!</p>
@@ -408,7 +408,7 @@
                                 html += '<a style="text-decoration: none;" href="#matchpage">';
                                 html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
                                 html += ' <fieldset class="ui-grid-solo">';
-                                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label >' + value.match_time + ' ' + value.match_hometeam_name + ' - ' + value.match_awayteam_name + '</label></div>';
+                                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;">' + value.match_time + ' ' + value.match_hometeam_name + ' - ' + value.match_awayteam_name + '</label></div>';
                                 html += ' </fieldset>';
 
                                 html += '</div>';
@@ -418,7 +418,7 @@
                                 html += '<a style="text-decoration: none;" href="#matchpage">';
                                 html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
                                 html += ' <fieldset class="ui-grid-solo">';
-                                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label>Full Time ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + '</label></div>';
+                                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;">Full Time ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + '</label></div>';
                                 html += ' </fieldset>';
                                 html += '</div>';
                                 html += '</a>';
@@ -427,7 +427,7 @@
                                 html += '<a style="text-decoration: none;" href="#matchpage">';
                                 html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
                                 html += ' <fieldset class="ui-grid-solo">';
-                                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label>' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label></div>';
+                                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;">' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label></div>';
                                 html += ' </fieldset>';
                                 html += '</div>';
                                 html += '</a>';
@@ -467,13 +467,13 @@
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
                     html += '<hr/>';
                     html += ' <fieldset class="ui-grid-a">';
-                    html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</label></div>';
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</label></div>';
+                    html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="white-space:normal;" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</label></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="white-space:normal;" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</label></div>';
                     html += ' </fieldset>';
                     html += '<hr/>';
                     html += ' <fieldset class="ui-grid-a">';
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</label></div>';
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchTime=' + formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id="shareButtonBefore" class="MshareBefore">Remind a friend!</label></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="white-space:normal;" data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</label></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="white-space:normal;" data-matchdate=' + formatedData[0].match_date + ' data-matchTime=' + formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id="shareButtonBefore" class="MshareBefore">Remind a friend!</label></div>';
                     //html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="sendSMSreminder" class="sendSMSreminder"><a style="text-decoration: none;" href="sms.html" data-rel="contact" data-icon="comment">SMS</a></label></div>';
                     html += ' </fieldset>';
                     //html += ' <fieldset class="ui-grid-solo">';
@@ -484,21 +484,21 @@
                     html += '<hr/>';
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
                     html += ' <fieldset class="ui-grid-solo">'
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchTime=' + formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonAfter" class="MshareAfter">Share a result!</label></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;" data-matchdate=' + formatedData[0].match_date + ' data-matchTime=' + formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonAfter" class="MshareAfter">Share a result!</label></div>';
                     html += ' </fieldset>';
                 }
                 else {
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
                     html += '<hr/>';
                     html += ' <fieldset class="ui-grid-solo">';
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button></div>';
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button data-matchStatus=' + formatedData[0].match_status + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonLive" class="MshareLive">Sharescore!</button></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button style="white-space:normal;" data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button style="white-space:normal;" data-matchStatus=' + formatedData[0].match_status + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonLive" class="MshareLive">Sharescore!</button></div>';
                     html += ' </fieldset>';
                 }
                 html += '</div>';
                 html += ' <fieldset class="ui-grid-a">';
-                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label><a style="text-decoration: none;" href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a></label></div>';
-                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label><a style="text-decoration: none;" href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a></label></div>';
+                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="white-space:normal;" ><a style="text-decoration: none;" href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a></label></div>';
+                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="white-space:normal;" ><a style="text-decoration: none;" href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a></label></div>';
                 html += ' </fieldset>';
                 if (formatedData[0].match_status != "" && formatedData[0].cards != null) {
                     html += '<label>Goals</label>';
@@ -816,7 +816,7 @@
                         });
                         html += '</div>';
                         html += '<fieldset class="ui-grid-solo">';
-                        html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral;"><button data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</button></div>';
+                        html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral; white-space:normal;"><button data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</button></div>';
                         html += '<hr/>';
                         html += '</fieldset>';
                         html += '</div>';
@@ -918,7 +918,7 @@
                         });
                         html += '</div>';
                         html += ' <fieldset class="ui-grid-solo">';
-                        html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral;"><label data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</label></div>';
+                        html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral; "white-space:normal;"><label data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</label></div>';
                         html += '<hr/>';
                         html += '</fieldset>';
                         html += '</div>';
