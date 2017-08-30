@@ -35,6 +35,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
             </ul>
+
         </div>
     </div>
     <div data-role="content" data-theme="b">
@@ -44,11 +45,12 @@
         <p><a style="background-color: coral;" href="#matches_live" data-role="button" id="liveButton">Live</a>
         <p><a style="background-color: coral;" href="#follows" data-role="button" id="goToFollow">Follows</a>
         <p><a style="background-color: coral;" href="#find_standings" data-role="button">Standings</a>
-    </div>
- <div data-role="footer" data-position="inline" style="position: sticky;bottom: 0;position: absolute;top: auto !important;width:100%;text-align: center;">
 
-     <h7>Copyright Banowski & Dolezalek (c) 2017 </h7>
- </div>
+    </div>
+    <div data-role="footer" data-position="inline"
+         style="position: sticky;bottom: 0;position: absolute;top: auto !important;width:100%;text-align: center;">
+        <h7>Copyright Banowski & Dolezalek (c) 2017</h7>
+    </div>
 
 </div>
 
@@ -65,6 +67,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
             </ul>
+
         </div>
     </div>
     <div data-role="content" data-theme="b" style="position: absolute; width: 100%; text-align: center; padding: 0px;">
@@ -98,8 +101,11 @@
                 </button>
             </div>
         </fieldset>
+
+
     </div>
 </div>
+
 
 <!-- *** Find Match ***-->
 <div id="find_match" data-role="page" data-theme="b">
@@ -114,6 +120,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
             </ul>
+
         </div>
     </div>
     <div data-role="content" data-theme="b" style="text-align: center;">
@@ -182,6 +189,7 @@
         <a style="background-color: coral;" href="#find_match_results"
            class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="inter">Search Live
             Match</a>
+
     </div>
 </div>
 
@@ -198,6 +206,7 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
             </ul>
+
         </div>
     </div>
     <div data-role="content" data-theme="b" style="text-align: center;">
@@ -249,6 +258,7 @@
             </select>
         </form>
         <a href="#find_standings2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" id="findStan">Search</a>
+
     </div>
 </div>
 
@@ -258,6 +268,7 @@
         <a href="index.html" data-icon="back" style="position: sticky;">Back to MainPage</a>
     </div>
     <div data-role="content" data-theme="b" id="LiveResult">
+
     </div>
 </div>
 
@@ -267,6 +278,7 @@
         <a href="index.html" data-icon="back" style="position: sticky;">Back to MainPage</a>
     </div>
     <div data-role="content" data-theme="b" id="standingsMenuResult">
+
     </div>
 </div>
 
@@ -276,6 +288,7 @@
         <a href="#find_match" data-icon="back" style="position: sticky;">Back to Search Matches</a>
     </div>
     <div data-role="content" data-theme="b" id="result">
+
     </div>
 </div>
 
@@ -286,6 +299,7 @@
         <a href="#find_match_results" data-icon="back" style="position: sticky;">Back to Search Matches</a>
     </div>
     <div data-role="main" class="ui-content result__item__label" id="matchDetails">
+
     </div>
 </div>
 
@@ -302,10 +316,12 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
             </ul>
+
         </div>
     </div>
     <div data-role="content" data-theme="b">
         <h2 style="text-align: center;">Live</h2>
+
     </div>
 </div>
 
@@ -322,10 +338,13 @@
                     <a href="#about_popup" data-rel="about" data-data-transition="pop" data-icon="search">About</a>
                 </li>
             </ul>
+
         </div>
     </div>
+    <button class="refFollow" id="rFollow">Refresh</button>
     <div data-role="content" data-theme="b" id="followResult">
         <h2 style="text-align: center;">Follows</h2>
+
     </div>
 </div>
 
@@ -335,6 +354,7 @@
         <h1>Standings</h1>
     </div>
     <div role="main" class="ui-content" id="standingsResult">
+
     </div>
 </div>
 
@@ -344,6 +364,7 @@
         <h1>Odds</h1>
     </div>
     <div role="main" class="ui-content" id="oddsResult">
+
     </div>
 </div>
 
@@ -452,7 +473,7 @@
                     html += '<hr/>';
                     html += ' <fieldset class="ui-grid-a">';
                     html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</label></div>';
-                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="shareButton" class="Mshare">Share!</label></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchTime=' + formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id="shareButtonBefore" class="MshareBefore">Remind a friend!</label></div>';
                     //html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="sendSMSreminder" class="sendSMSreminder"><a style="text-decoration: none;" href="sms.html" data-rel="contact" data-icon="comment">SMS</a></label></div>';
                     html += ' </fieldset>';
                     //html += ' <fieldset class="ui-grid-solo">';
@@ -462,12 +483,16 @@
                 else if (formatedData[0].match_status == 'FT') {
                     html += '<hr/>';
                     html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
+                    html += ' <fieldset class="ui-grid-solo">'
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label data-matchdate=' + formatedData[0].match_date + ' data-matchTime=' + formatedData[0].match_time + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonAfter" class="MshareAfter">Share a result!</label></div>';
+                    html += ' </fieldset>';
                 }
                 else {
                     html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
                     html += '<hr/>';
                     html += ' <fieldset class="ui-grid-solo">';
                     html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button></div>';
+                    html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button data-matchStatus=' + formatedData[0].match_status + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonLive" class="MshareLive">Sharescore!</button></div>';
                     html += ' </fieldset>';
                 }
                 html += '</div>';
@@ -518,7 +543,7 @@
                         var faul = value.home_fault;
                         var faul2 = value.away_fault;
                         var formatedFaul = faul.substring(4);
-                        var formatedFaul2 = faul2.substring();
+                        var formatedFaul2 = faul2.substring(4);
                         html += '<label>' + value.time + '   ' + value.card + ' ' + formatedFaul + '' + formatedFaul2 + '</label>';
                     }
                     html += '</div>';
@@ -748,24 +773,112 @@
     $('body').on('click', '.matchUnfollow', function () {
         var elemID = $(this).attr('data-matchId');
         localStorage.removeItem(elemID);
-        window.location.reload(true);
-        //$("#follows").load(location.href+" #follows>*","");
+
+
         alert("Match is now unfollowed, refresh the page to see the result")
     });
-
-    $('UnfollowMatch').click(function () {
-        location.reload();
-    });
 </script>
+
+<!-- *** ReFollow match refresh *** -->
 <script>
-    $('body').on('click', '.Mshare', function () {
-        var elemID = $(this).attr('data-matchId');
+    $('body').on('click', '.refFollow', function () {
+        var len = localStorage.length;
+        if (len > 0) {
+            for (var i = len - 1; i >= 0; i--) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+                var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+                var link = 'https://apifootball.com/api/?action=get_events&from=' + value + '&to=' + value + '&match_id=' + key;
+                var html = '';
+                $.ajax({
+                    url: urlAPI,
+                    type: 'POST',
+                    data: {
+                        'link': link,
+                    },
+                    //zamiana odpowiedzi json na string
+                    success: function (result) {
+                        var returnedData = JSON.parse(result);
+                        var formatedData = JSON.parse(returnedData);
+                        html += '<div class="' + formatedData[0].match_id + '_resultsfromFollow">';
+                        if (formatedData[0].match_status == "") {
+                            html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+                        }
+                        else if (formatedData[0].match_status == 'FT') {
+                            html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
+                        }
+                        else {
+                            html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
+                        }
+                        html += '<div class="' + formatedData[0].match_id + '_goalscorers_follow">';
+                        $.each(formatedData[0].goalscorer, function (key, value) {
+                            html += '<label>&nbsp' + value.time + ' ' + value.score + ' ' + value.home_scorer + '' + value.away_scorer + '</label>';
+                        });
+                        html += '</div>';
+                        html += ' <fieldset class="ui-grid-solo">';
+                        html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral;"><label data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</label></div>';
+                        html += '<hr/>';
+                        html += '</fieldset>';
+                        html += '</div>';
+                        $('#followResult').html(html);
+                    }
+                });
+            }
+        }
+        else {
+            html = '';
+            html += '<label>You are not following any match at the moment</label>';
+            $('#followResult').html(html);
+        }
+    });
+</script>
+
+<!-- *** Social Media Sharing Before *** -->
+<script>
+    $('body').on('click', '.MshareBefore', function () {
+        var elemDate = $(this).attr('data-matchDate');
+        var elemTime = $(this).attr('data-matchTime');
+        var elemHome = $(this).attr('data-matchHome');
+        var homeTeam = elemHome.replace(/_/g, " ");
+        var elemAway = $(this).attr('data-matchAway');
+        var awayTeam = elemAway.replace(/_/g, " ");
+        //console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
         //$("#follows").load(location.href+" #follows>*","");
-        window.plugins.socialsharing.share(elemID);
+        window.plugins.socialsharing.share(elemDate + ' ' + elemTime + ' ' + homeTeam + ' - ' + awayTeam + ". Don't miss this match!");
 
     });
 </script>
 
+<!-- *** Social Media Sharing After*** -->
+<script>
+    $('body').on('click', '.MshareAfter', function () {
+        var elemDate = $(this).attr('data-matchDate');
+        var elemTime = $(this).attr('data-matchTime');
+        var elemHome = $(this).attr('data-matchHome');
+        var homeTeam = elemHome.replace(/_/g, " ");
+        var elemAway = $(this).attr('data-matchAway');
+        var awayTeam = elemAway.replace(/_/g, " ");
+        var homeScore = $(this).attr('data-homeScore');
+        var awayScore = $(this).attr('data-awayScore');
+        //console.log(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ' Final Score: '+homeScore+':'+awayScore);
+        //$("#follows").load(location.href+" #follows>*","");
+        window.plugins.socialsharing.share(elemDate + ' ' + elemTime + ' ' + homeTeam + ' - ' + awayTeam + ' Final Score: ' + homeScore + ':' + awayScore);
+    });
+</script>
+
+<!-- *** Social Media Sharing Live *** -->
+<script>
+    $('body').on('click', '.MshareLive', function () {
+        var elemStatus = $(this).attr('data-matchStatus');
+        var elemHome = $(this).attr('data-matchHome');
+        var homeTeam = elemHome.replace(/_/g, " ");
+        var elemAway = $(this).attr('data-matchAway');
+        var awayTeam = elemAway.replace(/_/g, " ");
+        //console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
+        //$("#follows").load(location.href+" #follows>*","");
+        window.plugins.socialsharing.share(elemStatus + ' min ' + homeTeam + ' - ' + awayTeam + ' Score: ' + homeScore + ':' + awayScore);
+    });
+</script>
 
 <!-- *** Follows Main Page ***-->
 <script>
@@ -964,7 +1077,9 @@
             alert("Please check your internet connectivity and try again for full app functionality");
         }
 
+
     }
 </script>
 
 </html>
+
