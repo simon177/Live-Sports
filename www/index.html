@@ -497,8 +497,8 @@
                 }
                 html += '</div>';
                 html += ' <fieldset class="ui-grid-a">';
-                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="white-space:normal;" ><a style="text-decoration: none;" href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + '>Standings</a></label></div>';
-                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="white-space:normal;" ><a style="text-decoration: none;" href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + '>Odds</a></label></div>';
+                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="white-space:normal;" ><a style="text-decoration: none;" href="#standingsPage" class="standings" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' id=' + elemLeague + ' data-transition="flip">Standings</a></label></div>';
+                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="white-space:normal;" ><a style="text-decoration: none;" href="#oddsPage" class="bets" data-date=' + elemDate + ' id=' + elemID + ' data-transition="flip">Odds</a></label></div>';
                 html += ' </fieldset>';
                 if (formatedData[0].match_status != "" && formatedData[0].cards != null) {
                     html += '<label>Goals</label>';
@@ -646,7 +646,17 @@
             //zamiana odpowiedzi json na string
             success: function (result) {
                 var returnedData = JSON.parse(result);
+				console.log(returnedData);
                 var html = '';
+					console.log(returnedData[0]);
+				    if (returnedData[0] == 404) {
+                    html += '<div>';
+					html += '<p>There is no odds available for this match right now</p>';
+					html += '</div>';
+					console.log(html);
+                    $('#oddsResult').html(html);
+                    }
+					else{
                 $.each(returnedData, function (key, value) {
                     html += '<div>';
                     //html += '<tr>';
@@ -658,7 +668,8 @@
                     html += '<p>' + value.odd_bookmakers + '  ' + value.odd_1 + '  ' + value.odd_x + '  ' + value.odd_2 + '</p>';
                     html += '</div>';
                 });
-                $('#oddsResult').html(html);
+					$('#oddsResult').html(html);
+				}
             }
         });
     });
