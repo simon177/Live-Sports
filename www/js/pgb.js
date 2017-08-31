@@ -80,9 +80,10 @@ $('body').on('click', '.result__item', function() {
             html += '<div class="new_result">';
             html += '<label>' + formatedData[0].league_name + ' - ' + formatedData[0].country_name + '</label>';
             html += '<label>' + formatedData[0].match_date + ' ' + formatedData[0].match_time + '</label>';
+			html += '<label>' + formatedData[0].match_hometeam_name+' Stadium</label>';
             if (formatedData[0].match_status == "") {
                 html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
-                html += '<hr/>';
+				html += '<hr/>';
                 html += ' <fieldset class="ui-grid-a">';
                 html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="white-space:normal;" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder">Remind me before match!</label></div>';
                 html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="white-space:normal;" data-home=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-away=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-date=' + formatedData[0].match_date + ' data-time=' + formatedData[0].match_time + ' id="reminder2">Remind me after match!</label></div>';
@@ -482,6 +483,54 @@ $("#liveButton").on('click', function() {
     });
 });
 
+$("#liveRef").on('click', function() {
+    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    date = yyyy + '-' + mm + '-' + dd;
+    console.log(date);
+    var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&match_live=1';
+    $.ajax({
+        url: urlAPI,
+        type: 'POST',
+        data: {
+            'link': link,
+        },
+        //zamiana odpowiedzi json na string
+        success: function(result) {
+            var returnedData = JSON.parse(result);
+            var formatedData = JSON.parse(returnedData);
+            var html = '';
+			console.log(formatedData);
+            if (formatedData.error == 404) {
+                html = 'No live matches';
+                $('#LiveResult').html(html);
+            } else {
+                $.each(formatedData, function(key, value) {
+                    if (value.match_status != 'FT' && value.match_status != 'Canc.' && value.match_status != '' && value.match_status != 'Postp.') {
+                            html += '<a style="text-decoration: none;" href="#matchpage">';
+                            html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
+                            html += ' <fieldset class="ui-grid-solo">';
+                            html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;">' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label></div>';
+                            html += ' </fieldset>';
+                            html += '</div>';
+                            html += '</a>';
+                    }
+                });
+            }
+            $('#LiveResult').html(html);
+        }
+    });
+});
+
 <!-- *** Follow match button action *** -->
 
 $('body').on('click', '.matchFollow', function() {
@@ -567,7 +616,7 @@ $('body').on('click', '.refFollow', function() {
                     var formatedData = JSON.parse(returnedData);
                     html += '<div class="' + formatedData[0].match_id + '_resultsfromFollow">';
                     if (formatedData[0].match_status == "") {
-                        html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+                        html += '<label>'+formatedData[0].match_date+' '+formatedData[0].match_time+' '+ formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
                     } else if (formatedData[0].match_status == 'FT') {
                         html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
                     } else {
@@ -661,7 +710,7 @@ $("#goToFollow").on('click', function() {
                     var formatedData = JSON.parse(returnedData);
                     html += '<div class="' + formatedData[0].match_id + '_resultsfromFollow">';
                     if (formatedData[0].match_status == "") {
-                        html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
+                        html += '<label>'+formatedData[0].match_date+' '+formatedData[0].match_time+' '+ formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + '</label>';
                     } else if (formatedData[0].match_status == 'FT') {
                         html += '<label>' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + '</label>';
                     } else {
