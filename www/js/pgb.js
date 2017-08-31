@@ -321,7 +321,8 @@ $('body').on('click', '#sortHome', function() {
 				returnedData.sort(function(a, b) {
                 return parseFloat(b.odd_1) - parseFloat(a.odd_1);
             });
-                html += '<p>' + 'Bookmaker' + '  ' + 'Home Win' + '  ' + 'Draw' + '  ' + 'Away Win' + '</p>';
+                html += '<p>' + 'Odds Legend' + '</p>';
+                html += '<p>' + 'Bookmaker' + ' ' + 'Home Win' + ' ' + 'Draw' + ' ' + 'Away Win' + '</p>';
                 $.each(returnedData, function(key, value) {
                     html += '<div>';
                     //html += '<tr>';
@@ -366,7 +367,8 @@ $('body').on('click', '#sortX', function() {
 				returnedData.sort(function(a, b) {
                 return parseFloat(b.odd_x) - parseFloat(a.odd_x);
             });
-                html += '<p>' + 'Bookmaker' + '  ' + 'Home Win' + '  ' + 'Draw' + '  ' + 'Away Win' + '</p>';
+                html += '<p>' + 'Odds Legend' + '</p>';
+                html += '<p>' + 'Bookmaker' + ' ' + 'Home Win' + ' ' + 'Draw' + ' ' + 'Away Win' + '</p>';
                 $.each(returnedData, function(key, value) {
                     html += '<div>';
                     //html += '<tr>';
@@ -411,6 +413,8 @@ $('body').on('click', '#sortAway', function() {
 				returnedData.sort(function(a, b) {
                 return parseFloat(b.odd_2) - parseFloat(a.odd_2);
             });
+                html += '<p>' + 'Odds Legend' + '</p>';
+                html += '<p>' + 'Bookmaker' + ' ' + 'Home Win' + ' ' + 'Draw' + ' ' + 'Away Win' + '</p>';
                 $.each(returnedData, function(key, value) {
                     html += '<div>';
                     //html += '<tr>';
