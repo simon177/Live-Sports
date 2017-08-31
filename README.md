@@ -9,5 +9,5 @@ results of your team or player. Also you can track top live sport relations in r
 To check out advance descirbe of app working, please redirect to https://github.com/luki6021/Live-Sports/wiki
 
 Author:
-Szymon Banowski szymon.banowski@gmail.com
-Łukasz Doleżałek luki6021@wp.pl
+<li>Szymon Banowski szymon.banowski@gmail.com
+<li>Łukasz Doleżałek <a mailto="luki6021@wp.pl"/>
