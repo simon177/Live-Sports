@@ -10,4 +10,4 @@ To check out advance descirbe of app working, please redirect to <a href="https:
 
 Author:
 <li>Szymon Banowski szymon.banowski@gmail.com
-<li>Łukasz Doleżałek luki6021@wp.pl"
+<li>Łukasz Doleżałek luki6021@wp.pl
