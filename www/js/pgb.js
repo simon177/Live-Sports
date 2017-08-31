@@ -197,15 +197,15 @@ $('body').on('click', '.standings', function() {
             });
             var html = '';
             html += '<tr>';
-            html += '<th padding: 5px 5px 5px 5px;">' + 'No.' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'Name' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OPG' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OW' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OD' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OL' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OGF' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OGA' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'PTS' + '</th>';
+            html += '<th style="padding: 5px 5px 5px 5px;">' + 'No.' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'Name' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'PG' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'W' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'D' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'L' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'GF' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'GA' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'PT' + '</th>';
             html += '</tr>';
             $.each(formatedData, function(key, value) {
                 if (value.team_name.replace(/ /g, "_") == home || value.team_name.replace(/ /g, "_") == away) {
@@ -769,15 +769,15 @@ $("#findStan").on('click', function() {
             });
             var html = '';
             html += '<tr>';
-            html += '<th padding: 5px 5px 5px 5px;">' + 'No.' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'Name' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OPG' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OW' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OD' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OL' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OGF' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'OGA' + '</th>';
-            html += '<th  padding: 5px 5px 5px 5px;">' + 'PTS' + '</th>';
+            html += '<th style="padding: 5px 5px 5px 5px;">' + 'No.' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'Name' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'PG' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'W' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'D' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'L' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'GF' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'GA' + '</th>';
+            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'PT' + '</th>';
             html += '</tr>';
             $.each(formatedData, function(key, value) {
                 html += '<tr>';
