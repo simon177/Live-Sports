@@ -105,8 +105,8 @@ $('body').on('click', '.result__item', function() {
                 html += '<label>' + formatedData[0].match_status + ' ' + formatedData[0].match_hometeam_name + ' - ' + formatedData[0].match_awayteam_name + ' ' + formatedData[0].match_hometeam_score + ':' + formatedData[0].match_awayteam_score + ' LIVE!</label>';
                 html += '<hr/>';
                 html += ' <fieldset class="ui-grid-solo">';
-                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button style="white-space:normal;" data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</button></div>';
-                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><button style="white-space:normal;" data-matchStatus=' + formatedData[0].match_status + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonLive" class="MshareLive">Sharescore!</button></div>';
+                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;" data-matchdate=' + formatedData[0].match_date + ' data-matchId=' + formatedData[0].match_id + ' id="followMatch" class="matchFollow">Follow Match</label></div>';
+                html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;" data-matchStatus=' + formatedData[0].match_status + ' data-matchHome=' + formatedData[0].match_hometeam_name.replace(/ /g, "_") + ' data-matchAway=' + formatedData[0].match_awayteam_name.replace(/ /g, "_") + ' data-awayScore=' + formatedData[0].match_awayteam_score + ' data-homeScore=' + formatedData[0].match_hometeam_score + ' id="shareButtonLive" class="MshareLive">Sharescore!</label></div>';
                 html += ' </fieldset>';
             }
             html += '</div>';
@@ -467,11 +467,13 @@ $("#liveButton").on('click', function() {
             } else {
                 $.each(formatedData, function(key, value) {
                     if (value.match_status != 'FT' && value.match_status != 'Canc.' && value.match_status != '' && value.match_status != 'Postp.') {
-                        html += '<a href="#matchpage">';
-                        html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
-                        html += '<label>' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label>';
-                        html += '</div>';
-                        html += '</a>';
+                            html += '<a style="text-decoration: none;" href="#matchpage">';
+                            html += '<div data-date=' + date + ' data-league=' + value.league_id + ' class="result__item"' + 'match_id=' + value.match_id + '>';
+                            html += ' <fieldset class="ui-grid-solo">';
+                            html += '<div class="ui-btn ui-corner-all ui-shadow ui-btn-b"><label style="white-space:normal;">' + value.match_status + ' ' + value.match_hometeam_name + ' ' + value.match_hometeam_score + ':' + value.match_awayteam_score + ' ' + value.match_awayteam_name + ' LIVE!</label></div>';
+                            html += ' </fieldset>';
+                            html += '</div>';
+                            html += '</a>';
                     }
                 });
             }
