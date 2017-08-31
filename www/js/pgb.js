@@ -256,6 +256,7 @@ $('body').on('click', '.bets', function() {
             var returnedData = JSON.parse(result);
             var html = '';
             if (returnedData[0] == 404) {
+				$('#buttons').html('');
 				html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
@@ -305,7 +306,8 @@ $('body').on('click', '#sortHome', function() {
             var returnedData = JSON.parse(result);
             var html = '';
             if (returnedData[0] == 404) {
-                html += '<div>';
+                $('#buttons').html('');
+				html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
                 $('#oddsResult').html(html);
@@ -348,7 +350,8 @@ $('body').on('click', '#sortX', function() {
             var returnedData = JSON.parse(result);
             var html = '';
             if (returnedData[0] == 404) {
-                html += '<div>';
+                $('#buttons').html('');
+				html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
                 $('#oddsResult').html(html);
@@ -391,7 +394,8 @@ $('body').on('click', '#sortAway', function() {
             var returnedData = JSON.parse(result);
             var html = '';
             if (returnedData[0] == 404) {
-                html += '<div>';
+                $('#buttons').html('');
+				html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
                 $('#oddsResult').html(html);
