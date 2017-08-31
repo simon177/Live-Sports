@@ -6,8 +6,8 @@ Check out courses and type! Find out the event which you would like to track. En
 getting notifications while gol or penalty kick. Check the odds and get focus on analyzing 
 results of your team or player. Also you can track top live sport relations in real time !
 
-To check out advance descirbe of app working, please redirect to https://github.com/luki6021/Live-Sports/wiki
+To check out advance descirbe of app working, please redirect to <a href="https://github.com/luki6021/Live-Sports/wiki"> Project Wiki </a>
 
 Author:
 <li>Szymon Banowski szymon.banowski@gmail.com
-<li>Łukasz Doleżałek <a mailto="luki6021@wp.pl"/>
+<li>Łukasz Doleżałek luki6021@wp.pl"
