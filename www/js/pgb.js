@@ -633,8 +633,8 @@ $('body').on('click', '.MshareLive', function() {
     var homeTeam = elemHome.replace(/_/g, " ");
     var elemAway = $(this).attr('data-matchAway');
     var awayTeam = elemAway.replace(/_/g, " ");
-    //console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
-    //$("#follows").load(location.href+" #follows>*","");
+	var homeScore = $(this).attr('data-homeScore');
+    var awayScore = $(this).attr('data-awayScore');
     window.plugins.socialsharing.share(elemStatus + ' min ' + homeTeam + ' - ' + awayTeam + ' Score: ' + homeScore + ':' + awayScore);
 });
 
