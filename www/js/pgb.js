@@ -577,7 +577,7 @@ $('body').on('click', '.refFollow', function() {
                     });
                     html += '</div>';
                     html += '<fieldset class="ui-grid-solo">';
-                    html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral; white-space:normal;"><button data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</button></div>';
+                    html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral; white-space:normal;"><label data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</label></div>';
                     html += '<hr/>';
                     html += '</fieldset>';
                     html += '</div>';
@@ -672,7 +672,7 @@ $("#goToFollow").on('click', function() {
                     });
                     html += '</div>';
                     html += ' <fieldset class="ui-grid-solo">';
-                    html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral; "white-space:normal;"><label data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</label></div>';
+                    html += '<div class=" ui-btn ui-corner-all ui-shadow ui-btn-b" style="background-color: coral; white-space:normal;"><label data-matchId=' + formatedData[0].match_id + ' id="UnfollowMatch" class="matchUnfollow">Unfollow</label></div>';
                     html += '<hr/>';
                     html += '</fieldset>';
                     html += '</div>';
