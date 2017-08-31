@@ -222,15 +222,15 @@ $('body').on('click', '.standings', function() {
                     html += '</tr>';
                 } else {
                     html += '<tr>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_position + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.team_name + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_payed + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_W + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_D + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_L + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_GF + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_GA + '</th>';
-                    html += '<th  padding: 5px 5px 5px 5px;">' + value.overall_league_PTS + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_position + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.team_name + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_payed + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_W + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_D + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_L + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_GF + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_GA + '</th>';
+                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_PTS + '</th>';
                     html += '</tr>';
                 }
             });
@@ -260,12 +260,157 @@ $('body').on('click', '.bets', function() {
             var html = '';
             console.log(returnedData[0]);
             if (returnedData[0] == 404) {
+				html += '<div>';
+                html += '<p>There is no odds available for this match right now</p>';
+                html += '</div>';
+                console.log(html);
+                $('#oddsResult').html(html);
+            } else {
+				html2=''
+                html2+='<fieldset class="ui-grid-b">';
+                html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="position: sticky;" id="sortHome"  matchID='+elemID+' matchDate='+elemDate+'>Sort home team</label></div>';
+				html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="position: sticky;" id="sortX"  matchID='+elemID+' matchDate='+elemDate+'>Sort draw</label></div>';
+				html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-c"><label style="position: sticky;" id="sortAway" matchID='+elemID+' matchDate='+elemDate+'>Sort away team</label></div>';
+				html2+='</fieldset>';
+                $('#buttons').html(html2);
+				returnedData.sort(function(a, b) {
+                return parseFloat(b.odd_1) - parseFloat(a.odd_1);
+            });
+                html += '<p>' + 'Odds Legend' + '</p>';
+                html += '<p>' + 'Bookmaker' + ' ' + 'Home Win' + ' ' + 'Draw' + ' ' + 'Away Win' + '</p>';
+                $.each(returnedData, function(key, value) {
+                    html += '<div>';
+                    //html += '<tr>';
+                    //html += '<th style="padding: 5px 5px 5px 5px;">' + value.odd_bookmakers + '</th>';
+                    //html += '<th style="padding: 5px 5px 5px 5px;">' + value.odd_1 + '</th>';
+                    //html += '<th style="padding: 5px 5px 5px 5px;">' + value.odd_x + '</th>';
+                    //html += '<th style="padding: 5px 5px 5px 5px;">' + value.odd_2 + '</th>';
+                    //html += '</tr>';
+                    html += '<p>' + value.odd_bookmakers + '  ' + value.odd_1 + '  ' + value.odd_x + '  ' + value.odd_2 + '</p>';
+                    html += '</div>';
+                });
+                $('#oddsResult').html(html);
+            }
+        }
+    });
+});
+$('body').on('click', '#sortHome', function() {
+    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var elemID = $(this).attr('matchID');
+    var elemDate = $(this).attr('matchDate');
+    var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
+    $.ajax({
+        url: urlAPI,
+        type: 'POST',
+        data: {
+            'link': link,
+        },
+        //zamiana odpowiedzi json na string
+        success: function(result) {
+            var returnedData = JSON.parse(result);
+            console.log(returnedData);
+            var html = '';
+            console.log(returnedData[0]);
+            if (returnedData[0] == 404) {
                 html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
                 console.log(html);
                 $('#oddsResult').html(html);
             } else {
+				returnedData.sort(function(a, b) {
+                return parseFloat(b.odd_1) - parseFloat(a.odd_1);
+            });
+                html += '<p>' + 'Bookmaker' + '  ' + 'Home Win' + '  ' + 'Draw' + '  ' + 'Away Win' + '</p>';
+                $.each(returnedData, function(key, value) {
+                    html += '<div>';
+                    //html += '<tr>';
+                    //html += '<th>' + value.odd_bookmakers + '</th>';
+                    //html += '<th>' + value.odd_1 + '</th>';
+                    //html += '<th>' + value.odd_x + '</th>';
+                    //html += '<th>' + value.odd_2 + '</th>';
+                    //html += '</tr>';
+                    html += '<p>' + value.odd_bookmakers + '  ' + value.odd_1 + '  ' + value.odd_x + '  ' + value.odd_2 + '</p>';
+                    html += '</div>';
+                });
+                $('#oddsResult').html(html);
+            }
+        }
+    });
+});
+
+$('body').on('click', '#sortX', function() {
+    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var elemID = $(this).attr('matchID');
+    var elemDate = $(this).attr('matchDate');
+    var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
+    $.ajax({
+        url: urlAPI,
+        type: 'POST',
+        data: {
+            'link': link,
+        },
+        //zamiana odpowiedzi json na string
+        success: function(result) {
+            var returnedData = JSON.parse(result);
+            console.log(returnedData);
+            var html = '';
+            console.log(returnedData[0]);
+            if (returnedData[0] == 404) {
+                html += '<div>';
+                html += '<p>There is no odds available for this match right now</p>';
+                html += '</div>';
+                console.log(html);
+                $('#oddsResult').html(html);
+            } else {
+				returnedData.sort(function(a, b) {
+                return parseFloat(b.odd_x) - parseFloat(a.odd_x);
+            });
+                html += '<p>' + 'Bookmaker' + '  ' + 'Home Win' + '  ' + 'Draw' + '  ' + 'Away Win' + '</p>';
+                $.each(returnedData, function(key, value) {
+                    html += '<div>';
+                    //html += '<tr>';
+                    //html += '<th>' + value.odd_bookmakers + '</th>';
+                    //html += '<th>' + value.odd_1 + '</th>';
+                    //html += '<th>' + value.odd_x + '</th>';
+                    //html += '<th>' + value.odd_2 + '</th>';
+                    //html += '</tr>';
+                    html += '<p>' + value.odd_bookmakers + '  ' + value.odd_1 + '  ' + value.odd_x + '  ' + value.odd_2 + '</p>';
+                    html += '</div>';
+                });
+                $('#oddsResult').html(html);
+            }
+        }
+    });
+});
+
+$('body').on('click', '#sortAway', function() {
+    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var elemID = $(this).attr('matchID');
+    var elemDate = $(this).attr('matchDate');
+    var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
+    $.ajax({
+        url: urlAPI,
+        type: 'POST',
+        data: {
+            'link': link,
+        },
+        //zamiana odpowiedzi json na string
+        success: function(result) {
+            var returnedData = JSON.parse(result);
+            console.log(returnedData);
+            var html = '';
+            console.log(returnedData[0]);
+            if (returnedData[0] == 404) {
+                html += '<div>';
+                html += '<p>There is no odds available for this match right now</p>';
+                html += '</div>';
+                console.log(html);
+                $('#oddsResult').html(html);
+            } else {
+				returnedData.sort(function(a, b) {
+                return parseFloat(b.odd_2) - parseFloat(a.odd_2);
+            });
                 $.each(returnedData, function(key, value) {
                     html += '<div>';
                     //html += '<tr>';
