@@ -197,40 +197,40 @@ $('body').on('click', '.standings', function() {
             });
             var html = '';
             html += '<tr>';
-            html += '<th style="padding: 5px 5px 5px 5px;">' + 'No.' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'Name' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'PG' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'W' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'D' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'L' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'GF' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'GA' + '</th>';
-            html += '<th  style="padding: 5px 5px 5px 5px;">' + 'PT' + '</th>';
+            html += '<th >' + 'No.' + '</th>';
+            html += '<th  >' + 'Name' + '</th>';
+            html += '<th >' + 'PG' + '</th>';
+            html += '<th >' + 'W' + '</th>';
+            html += '<th  >' + 'D' + '</th>';
+            html += '<th  >' + 'L' + '</th>';
+            html += '<th >' + 'GF' + '</th>';
+            html += '<th  >' + 'GA' + '</th>';
+            html += '<th  >' + 'PT' + '</th>';
             html += '</tr>';
             $.each(formatedData, function(key, value) {
                 if (value.team_name.replace(/ /g, "_") == home || value.team_name.replace(/ /g, "_") == away) {
                     html += '<tr>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_position + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.team_name + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_payed + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_W + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_D + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_L + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_GF + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_GA + '</th>';
-                    html += '<th style="color:blue; padding: 5px 5px 5px 5px;">' + value.overall_league_PTS + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_position + '</th>';
+                    html += '<th style="color:blue; ">' + value.team_name + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_payed + '</th>';
+                    html += '<th style="color:blue;">' + value.overall_league_W + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_D + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_L + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_GF + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_GA + '</th>';
+                    html += '<th style="color:blue; ">' + value.overall_league_PTS + '</th>';
                     html += '</tr>';
                 } else {
                     html += '<tr>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_position + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.team_name + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_payed + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_W + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_D + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_L + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_GF + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_GA + '</th>';
-                    html += '<th  style="padding: 5px 5px 5px 5px;">' + value.overall_league_PTS + '</th>';
+                    html += '<th >' + value.overall_league_position + '</th>';
+                    html += '<th >' + value.team_name + '</th>';
+                    html += '<th >' + value.overall_league_payed + '</th>';
+                    html += '<th >' + value.overall_league_W + '</th>';
+                    html += '<th >' + value.overall_league_D + '</th>';
+                    html += '<th >' + value.overall_league_L + '</th>';
+                    html += '<th >' + value.overall_league_GF + '</th>';
+                    html += '<th >' + value.overall_league_GA + '</th>';
+                    html += '<th >' + value.overall_league_PTS + '</th>';
                     html += '</tr>';
                 }
             });
@@ -268,9 +268,9 @@ $('body').on('click', '.bets', function() {
             } else {
 				html2=''
                 html2+='<fieldset class="ui-grid-b">';
-                html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="position: sticky;" id="sortHome"  matchID='+elemID+' matchDate='+elemDate+'>Sort home team</label></div>';
-				html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="position: sticky;" id="sortX"  matchID='+elemID+' matchDate='+elemDate+'>Sort draw</label></div>';
-				html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-c"><label style="position: sticky;" id="sortAway" matchID='+elemID+' matchDate='+elemDate+'>Sort away team</label></div>';
+                html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-a"><label style="position: sticky; white-space:normal;" id="sortHome"  matchID='+elemID+' matchDate='+elemDate+'>Sort home team</label></div>';
+				html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-b"><label style="position: sticky; white-space:normal;" id="sortX"  matchID='+elemID+' matchDate='+elemDate+'>Sort draw</label></div>';
+				html2+='<div class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-block-c"><label style="position: sticky; white-space:normal;" id="sortAway" matchID='+elemID+' matchDate='+elemDate+'>Sort away team</label></div>';
 				html2+='</fieldset>';
                 $('#buttons').html(html2);
 				returnedData.sort(function(a, b) {
