@@ -131,6 +131,9 @@
             $(function () {
                 $.datepicker.setDefaults({dateFormat: 'yy-mm-dd'});
                 $("#date").datepicker();
+				var lastDate = new Date();
+				lastDate.setDate(lastDate.getDate());
+				$("#date").datepicker('setDate', lastDate);
                 //$("#format").on("change", function () {
                 //    $("#datepicker").datepicker("option", "dateFormat", $(this).val());
                 //});
