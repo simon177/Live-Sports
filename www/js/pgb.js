@@ -130,7 +130,6 @@ $('body').on('click', '.result__item', function() {
                 var scorer2 = value.away_scorer;
                 var formatedScorer = scorer.substring(4);
                 var formatedScorer2 = scorer2.substring(4);
-                console.log(home + away);
                 //if(home == 0 && away ==0){
                 //scoreCheck = home+away
                 //html += '<label>' + value.time + ' ' + value.score + ' ' + formatedScorer + '' + formatedScorer2 + ' Missed Penalty!</label>';
@@ -146,7 +145,6 @@ $('body').on('click', '.result__item', function() {
                 //}
                 html += '</div>';
             });
-            console.log(formatedData[0].cards);
             if (formatedData[0].match_status != "" && formatedData[0].cards != null) {
                 html += '<label>Cards</label>';
                 html += '<hr/>';
@@ -235,7 +233,6 @@ $('body').on('click', '.standings', function() {
                     html += '</tr>';
                 }
             });
-            console.log(html);
             $('#standingsResult').html(html);
         }
     });
@@ -257,14 +254,11 @@ $('body').on('click', '.bets', function() {
         //zamiana odpowiedzi json na string
         success: function(result) {
             var returnedData = JSON.parse(result);
-            console.log(returnedData);
             var html = '';
-            console.log(returnedData[0]);
             if (returnedData[0] == 404) {
 				html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
-                console.log(html);
                 $('#oddsResult').html(html);
             } else {
 				html2=''
@@ -309,14 +303,11 @@ $('body').on('click', '#sortHome', function() {
         //zamiana odpowiedzi json na string
         success: function(result) {
             var returnedData = JSON.parse(result);
-            console.log(returnedData);
             var html = '';
-            console.log(returnedData[0]);
             if (returnedData[0] == 404) {
                 html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
-                console.log(html);
                 $('#oddsResult').html(html);
             } else {
 				returnedData.sort(function(a, b) {
@@ -355,14 +346,11 @@ $('body').on('click', '#sortX', function() {
         //zamiana odpowiedzi json na string
         success: function(result) {
             var returnedData = JSON.parse(result);
-            console.log(returnedData);
             var html = '';
-            console.log(returnedData[0]);
             if (returnedData[0] == 404) {
                 html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
-                console.log(html);
                 $('#oddsResult').html(html);
             } else {
 				returnedData.sort(function(a, b) {
@@ -401,14 +389,11 @@ $('body').on('click', '#sortAway', function() {
         //zamiana odpowiedzi json na string
         success: function(result) {
             var returnedData = JSON.parse(result);
-            console.log(returnedData);
             var html = '';
-            console.log(returnedData[0]);
             if (returnedData[0] == 404) {
                 html += '<div>';
                 html += '<p>There is no odds available for this match right now</p>';
                 html += '</div>';
-                console.log(html);
                 $('#oddsResult').html(html);
             } else {
 				returnedData.sort(function(a, b) {
@@ -448,7 +433,6 @@ $("#liveButton").on('click', function() {
         mm = '0' + mm
     }
     date = yyyy + '-' + mm + '-' + dd;
-    console.log(date);
     var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&match_live=1';
     $.ajax({
         url: urlAPI,
@@ -461,7 +445,6 @@ $("#liveButton").on('click', function() {
             var returnedData = JSON.parse(result);
             var formatedData = JSON.parse(returnedData);
             var html = '';
-			console.log(formatedData);
             if (formatedData.error == 404) {
                 html = 'No live matches';
                 $('#LiveResult').html(html);
@@ -496,7 +479,6 @@ $("#liveRef").on('click', function() {
         mm = '0' + mm
     }
     date = yyyy + '-' + mm + '-' + dd;
-    console.log(date);
     var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&match_live=1';
     $.ajax({
         url: urlAPI,
@@ -509,7 +491,6 @@ $("#liveRef").on('click', function() {
             var returnedData = JSON.parse(result);
             var formatedData = JSON.parse(returnedData);
             var html = '';
-			console.log(formatedData);
             if (formatedData.error == 404) {
                 html = 'No live matches';
                 $('#LiveResult').html(html);
@@ -538,12 +519,10 @@ $('body').on('click', '.matchFollow', function() {
     var elemID = $(this).attr('data-matchId');
     var len = localStorage.length;
     var identifier = 0;
-    console.log(identifier);
     for (var i = 0; i < len; i++) {
         var key = localStorage.key(i);
         if (elemID == key) {
             identifier = 1;
-            console.log(identifier);
         }
     }
     if (identifier == 1) {
@@ -561,12 +540,10 @@ $('body').on('click', '.sendSMSreminder', function() {
     var elemID = $(this).attr('data-matchId');
     var len = localStorage.length;
     var identifier = 0;
-    console.log(identifier);
     for (var i = 0; i < len; i++) {
         var key = localStorage.key(i);
         if (elemID == key) {
             identifier = 1;
-            console.log(identifier);
         }
     }
     localStorage.setItem('sms-matchId', elemID);
@@ -652,8 +629,6 @@ $('body').on('click', '.MshareBefore', function() {
     var homeTeam = elemHome.replace(/_/g, " ");
     var elemAway = $(this).attr('data-matchAway');
     var awayTeam = elemAway.replace(/_/g, " ");
-    //console.log(elemDate+' '+elemTime+' '+homeTeam+'-'+awayTeam + ". Don't miss this match!");
-    //$("#follows").load(location.href+" #follows>*","");
     window.plugins.socialsharing.share(elemDate + ' ' + elemTime + ' ' + homeTeam + ' - ' + awayTeam + ". Don't miss this match!");
 
 });
@@ -669,8 +644,6 @@ $('body').on('click', '.MshareAfter', function() {
     var awayTeam = elemAway.replace(/_/g, " ");
     var homeScore = $(this).attr('data-homeScore');
     var awayScore = $(this).attr('data-awayScore');
-    //console.log(elemDate+' '+elemTime+' '+homeTeam+' - '+awayTeam + ' Final Score: '+homeScore+':'+awayScore);
-    //$("#follows").load(location.href+" #follows>*","");
     window.plugins.socialsharing.share(elemDate + ' ' + elemTime + ' ' + homeTeam + ' - ' + awayTeam + ' Final Score: ' + homeScore + ':' + awayScore);
 });
 
@@ -779,7 +752,6 @@ $('body').on('click', '#reminder2', function() {
     var day = dateD.substring(8, 10);
     var hour = timeD.substring(0, 2);
     var finalHour = +hour + 2;
-    console.log(finalHour);
     var minutes = timeD.substring(3, 5);
     var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
     calOptions.firstReminderMinutes = 5;
