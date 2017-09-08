@@ -1,6 +1,6 @@
 $("#inter").on('click', function() {
 
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var urlAPI = 'http://api.entimos.pl/data.php';
     var date = $('#date').val();
     var league = $('#fto').val();
     var link = 'https://apifootball.com/api/?action=get_events&from=' + date + '&to=' + date + '&league_id=' + league + '&match_live=1';
@@ -61,7 +61,7 @@ $("#inter").on('click', function() {
 
 
 $('body').on('click', '.result__item', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var urlAPI = 'http://api.entimos.pl/data.php';
     var elemID = $(this).attr('match_id');
     var elemDate = $(this).attr('data-date');
     var elemLeague = $(this).attr('data-league');
@@ -176,7 +176,7 @@ $('body').on('click', '.result__item', function() {
 <!-- *** Stanings *** -->
 
 $('body').on('click', '.standings', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var urlAPI = 'http://api.entimos.pl/data.php';
     var elemLeague = $(this).attr('id');
     var home = $(this).attr('data-home');
     var away = $(this).attr('data-away');
@@ -241,7 +241,7 @@ $('body').on('click', '.standings', function() {
 <!-- *** Bets & Odds *** -->
 
 $('body').on('click', '.bets', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var urlAPI = 'http://api.entimos.pl/data2.php';
     var elemID = $(this).attr('id');
     var elemDate = $(this).attr('data-date');
     var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
@@ -291,7 +291,7 @@ $('body').on('click', '.bets', function() {
     });
 });
 $('body').on('click', '#sortHome', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var urlAPI = 'http://api.entimos.pl/data2.php';
     var elemID = $(this).attr('matchID');
     var elemDate = $(this).attr('matchDate');
     var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
@@ -335,7 +335,7 @@ $('body').on('click', '#sortHome', function() {
 });
 
 $('body').on('click', '#sortX', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var urlAPI = 'http://api.entimos.pl/data2.php';
     var elemID = $(this).attr('matchID');
     var elemDate = $(this).attr('matchDate');
     var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
@@ -379,7 +379,7 @@ $('body').on('click', '#sortX', function() {
 });
 
 $('body').on('click', '#sortAway', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data2.php';
+    var urlAPI = 'http://api.entimos.pl/data2.php';
     var elemID = $(this).attr('matchID');
     var elemDate = $(this).attr('matchDate');
     var link = 'https://apifootball.com/api/?action=get_odds&from=' + elemDate + '&to=' + elemDate + '&match_id=' + elemID;
@@ -425,7 +425,7 @@ $('body').on('click', '#sortAway', function() {
 <!-- *** Live Results Content *** -->
 
 $("#liveButton").on('click', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var urlAPI = 'http://api.entimos.pl/data.php';
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
@@ -471,7 +471,7 @@ $("#liveButton").on('click', function() {
 });
 
 $("#liveRef").on('click', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var urlAPI = 'http://api.entimos.pl/data.php';
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
@@ -582,7 +582,7 @@ $('body').on('click', '.refFollow', function() {
         for (var i = len - 1; i >= 0; i--) {
             var key = localStorage.key(i);
             var value = localStorage[key];
-            var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+            var urlAPI = 'http://api.entimos.pl/data.php';
             var link = 'https://apifootball.com/api/?action=get_events&from=' + value + '&to=' + value + '&match_id=' + key;
             var html = '';
             $.ajax({
@@ -672,7 +672,7 @@ $("#goToFollow").on('click', function() {
         for (var i = len - 1; i >= 0; i--) {
             var key = localStorage.key(i);
             var value = localStorage[key];
-            var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+            var urlAPI = 'http://api.entimos.pl/data.php';
             var link = 'https://apifootball.com/api/?action=get_events&from=' + value + '&to=' + value + '&match_id=' + key;
             var html = '';
             $.ajax({
@@ -778,7 +778,7 @@ $('body').on('click', '#reminder2', function() {
 <!-- *** Standings Main Page *** -->
 
 $("#findStan").on('click', function() {
-    var urlAPI = 'http://wizard.uek.krakow.pl/~s179683/Web/order2/www/data.php';
+    var urlAPI = 'http://api.entimos.pl/data.php';
     var league = $('#fleague').val();
     var link = 'https://apifootball.com/api/?action=get_standings&league_id=' + league;
     $.ajax({
